@@ -10,10 +10,10 @@ Web 330-331H Enterprise javaScript II: Group Project
 
 ## [Week 2](https://github.com/)
 * **Milestone 1:** *Team Selection*
-  * Designate a team captain and team name
-  * Create your team's GitHub repository
-  * The repository must have a README.md file
-  * Begin prototyping the User Interface
+  * Designate a team captain and team name ✓
+  * Create your team's GitHub repository ✓
+  * The repository must have a README.md file ✓
+  * Begin prototyping the User Interface ✓
 
 * **Deliverables for this assignment:**
   * *A single word document identifying:*
