@@ -6,7 +6,7 @@ Web 330-331H Enterprise javaScript II: Group Project
 * Professor Mohamed Eltayeb - Bellevue University
 * Loren Wetzel - Bellevue University
 * Tyler Librandi - Bellevue University
-* Cory Gilliam - Bellevue University
+* Cory Gilliam - Bellevue University *(Team Captain)*
 
 ## [Week 2](https://github.com/)
 * **Milestone 1:** *Team Selection*
