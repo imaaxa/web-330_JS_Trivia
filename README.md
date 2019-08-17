@@ -4,6 +4,7 @@ Web 330-331H Enterprise javaScript II: Group Project
 ## Contributors
 
 * Professor Mohamed Eltayeb - Bellevue University
+* Devcon Amigos
 * Loren Wetzel - Bellevue University
 * Tyler Librandi - Bellevue University
 * Cory Gilliam - Bellevue University *(Team Captain)*
