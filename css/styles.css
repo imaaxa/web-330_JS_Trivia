@@ -1,0 +1,20 @@
+.card.card-body {
+  border: 2px solid rgba(255, 197, 0, .8);
+  min-height: 10em;
+  margin-bottom: 2rem;
+}
+
+.jumbotron {
+  background-color: rgba(255, 197, 0, .05);
+  border: 2px solid rgba(255, 197, 0, .8);
+}
+
+.cta {
+  margin-bottom: -33px;
+}
+/*
+.rgba-primary-0 { color: rgba(0, 106, 217, 1); }
+.rgba-secondary-1-0 { color: rgba(16, 0, 222, 1); }
+.rgba-secondary-2-0 { color: rgba(255, 197, 0, 1); }
+.rgba-complement-0 { color: rgba(255, 153, 0, 1); }
+*/
