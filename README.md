@@ -31,7 +31,7 @@ Web 330-331H Enterprise javaScript II: Group Project
 * **Milestone 2:** *Prototype Submission*
   * Finalizing and submitting your team's prototype
 
-  * **Deliverables for this assignment:**
+* **Deliverables for this assignment:**
   * Prototype
   * Images (if any)
   * Link to your groups GitHub repository
