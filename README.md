@@ -9,12 +9,12 @@ Web 330-331H Enterprise javaScript II: Group Project
 * Tyler Librandi - Bellevue University
 * Cory Gilliam - Bellevue University *(Team Captain)*
 
-## [Week 2](https://github.com/)
+## [Week 2](https://github.com/imaaxa/web-330_JS_Trivia)
 * **Milestone 1:** *Team Selection*
-  * Designate a team captain and team name ✓
-  * Create your team's GitHub repository ✓
-  * The repository must have a README.md file ✓
-  * Begin prototyping the User Interface ✓
+  * Designate a team captain and team name
+  * Create your team's GitHub repository
+  * The repository must have a README.md file
+  * Begin prototyping the User Interface
 
 * **Deliverables for this assignment:**
   * *A single word document identifying:*
@@ -26,3 +26,12 @@ Web 330-331H Enterprise javaScript II: Group Project
       * Minimum of 150 words
       * Bio image
   * Link to your team's GitHub repository
+
+## [Week 3](https://github.com/imaaxa/web-330_JS_Trivia)
+* **Milestone 2:** *Prototype Submission*
+  * Finalizing and submitting your team's prototype
+
+  * **Deliverables for this assignment:**
+  * Prototype
+  * Images (if any)
+  * Link to your groups GitHub repository
