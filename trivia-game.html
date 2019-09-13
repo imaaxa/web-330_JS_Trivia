@@ -5,8 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width = device-width, initial-scale = 1">
     <title>Our JavaScript Trivia Game</title>
+
+    <!-- Stylesheet - Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- JavaScript Libraries -->
+    <script src="../knockout-3.5.0.js"></script>
+
     <link rel="stylesheet" href="css/styles.css">
   </head>
 
@@ -16,18 +22,28 @@
         <div>
           <h1>Our JavaScript Trivia Game</h1>
         </div>
+
+        <!-- Start Question count -->
         <div class="d-flex flex-row justify-content-between">
-          <h2>Question <spam class="question-index">1</spam></h2>
-          <h2><spam class="question-index">1</spam> of 10</h2>
+          <h2>Question <spam class="question-index" data-bind="value:questionNumber">1</spam>
+          </h2>
+          <h2>
+            <spam class="question-index" data-bind="value:questionNumber">1</spam> of 10
+          </h2>
         </div>
       </header>
+      <!-- End Question count -->
 
       <main class="jumbotron">
-        <div class="game-body rounded-lg">
+
+        <!-- Start Question -->
+        <div class="game-body rounded-lg" data-bind="value:question">
           <p>Would you like to play a game?</p>
         </div>
+        <!-- End Question Options -->
 
-        <div class="game-selection">
+        <!-- Start Question Options -->
+        <div class="game-selection" data-bind="value:questionOptions">
           <form action="#" method="post">
             <div class="form-group">
               <div class="form-check">
@@ -63,17 +79,23 @@
             </div>
           </form>
         </div>
+        <!-- Start Question Options -->
 
+        <!-- Start Question switching -->
         <div class="game-progress d-flex flex-row justify-content-between">
-          <!-- Buttons will be disabled at beginning or end of quiz -->
-          <button class="btn btn-secondary btn-sm text-capitalize" type="submit" disabled>Previous</button>
-          <button class="btn btn-secondary btn-sm text-capitalize" type="submit">Next</button>
+          <!-- Buttons will be disabled at beginning or end of quiz using "disabled" -->
+          <button class="btn btn-secondary btn-sm text-capitalize"  data-bind="value:questionPrev" disabled>Previous</button>
+          <button class="btn btn-secondary btn-sm text-capitalize"  data-bind="value:questionNext">Next</button>
         </div>
+        <!-- End Question switching -->
+
       </main>
 
+      <!-- Start game submit -->
       <footer class="d-flex flex-row justify-content-end">
-        <button class="btn btn-primary btn-lg" type="submit">Submit Answers</button>
+        <button class="btn btn-primary btn-lg" type="submit" data-bind="value:gameSubmit">Submit Answers</button>
       </footer>
+      <!-- End game submit -->
 
     </div>
 
@@ -83,5 +105,6 @@
       integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="./script/script.js"></script>
   </body>
 </html>
