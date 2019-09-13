@@ -1,20 +1,83 @@
 .card.card-body {
-  border: 2px solid rgba(255, 197, 0, .8);
-  min-height: 10em;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .jumbotron {
-  background-color: rgba(255, 197, 0, .05);
-  border: 2px solid rgba(255, 197, 0, .8);
+  background: #f2f6f8;
+  background: -moz-linear-gradient(top, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
+  background: -webkit-linear-gradient(top, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
+  background: linear-gradient(to bottom, #f2f6f8 0%, #d8e1e7 50%, #b5c6d0 51%, #e0eff9 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f2f6f8', endColorstr='#e0eff9', GradientType=0);
+  box-shadow: .2rem .2rem .25rem rgba(0, 0, 0, .25);
+  display: grid;
+  grid-template-rows: 12rem auto 2rem;
+  gap: 2rem 0rem;
+  padding: 1rem 2rem;
 }
 
-.cta {
-  margin-bottom: -33px;
+.game-body {
+  background-color: #fff;
+  box-shadow: .1rem .1rem .15rem rgba(0, 0, 0, .25) inset;
+  padding: .5rem 1rem;
 }
-/*
-.rgba-primary-0 { color: rgba(0, 106, 217, 1); }
-.rgba-secondary-1-0 { color: rgba(16, 0, 222, 1); }
-.rgba-secondary-2-0 { color: rgba(255, 197, 0, 1); }
-.rgba-complement-0 { color: rgba(255, 153, 0, 1); }
-*/
+
+.game-selection {
+  border-bottom: 1px solid azure;
+  padding-bottom: 10px;
+}
+
+.btn-primary,
+.btn-primary:not(:disabled):not(.disabled):hover,
+.btn-primary:not(:disabled):not(.disabled):focus {
+  background: #f85032;
+  background: -moz-linear-gradient(top, #f85032 0%, #f16f5c 50%, #f6290c 51%, #f02f17 71%, #e73827 100%);
+  background: -webkit-linear-gradient(top, #f85032 0%, #f16f5c 50%, #f6290c 51%, #f02f17 71%, #e73827 100%);
+  background: linear-gradient(to bottom, #f85032 0%, #f16f5c 50%, #f6290c 51%, #f02f17 71%, #e73827 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f85032', endColorstr='#e73827', GradientType=0);
+  border-color: #f85032;
+}
+
+.btn-primary:not(:disabled):not(.disabled):focus,
+.btn-primary:not(:disabled):not(.disabled):hover {
+  box-shadow: 0 0 1rem rgba(248, 80, 50, .5);
+}
+
+.btn-primary:not(:disabled):not(.disabled):active {
+  color: #f85032;
+  background: #ffffff;
+  background: -moz-linear-gradient(top, #ffffff 0%, #ededed 50%, #bfbfbf 50%, #ffffff 100%);
+  background: -webkit-linear-gradient(top, #ffffff 0%, #ededed 50%, #bfbfbf 50%, #ffffff 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #ededed 50%, #bfbfbf 50%, #ffffff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0);
+  border-color: transparent;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, .5);
+}
+
+.btn-secondary {
+  background: #aebcbf;
+  background: -moz-linear-gradient(top, #aebcbf 0%, #6e7774 50%, #0a0e0a 51%, #0a0809 100%);
+  background: -webkit-linear-gradient(top, #aebcbf 0%, #6e7774 50%, #0a0e0a 51%, #0a0809 100%);
+  background: linear-gradient(to bottom, #aebcbf 0%, #6e7774 50%, #0a0e0a 51%, #0a0809 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#aebcbf', endColorstr='#0a0809', GradientType=0);
+}
+
+.btn-secondary:not(:disabled):not(.disabled):focus,
+.btn-secondary:not(:disabled):not(.disabled):hover {
+  background: #bfd255;
+  background: -moz-linear-gradient(top, #bfd255 0%, #8eb92a 50%, #72aa00 51%, #9ecb2d 100%);
+  background: -webkit-linear-gradient(top, #bfd255 0%, #8eb92a 50%, #72aa00 51%, #9ecb2d 100%);
+  background: linear-gradient(to bottom, #bfd255 0%, #8eb92a 50%, #72aa00 51%, #9ecb2d 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#bfd255', endColorstr='#9ecb2d', GradientType=0);
+  box-shadow: 0 0 1rem rgba(191, 210, 85, .5);
+}
+
+.btn-secondary:not(:disabled):not(.disabled):active {
+  color: #bfd255;
+  background: #ffffff;
+  background: -moz-linear-gradient(top, #ffffff 0%, #ededed 50%, #bfbfbf 50%, #ffffff 100%);
+  background: -webkit-linear-gradient(top, #ffffff 0%, #ededed 50%, #bfbfbf 50%, #ffffff 100%);
+  background: linear-gradient(to bottom, #ffffff 0%, #ededed 50%, #bfbfbf 50%, #ffffff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0);
+  border-color: transparent;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, .5);
+}
