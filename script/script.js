@@ -27,3 +27,35 @@ var questionPool = [
 ];
 
 // Script Start
+
+/**
+ * Takes the questionPool.choices array and wraps the data inside HTML
+ * @param {int} questionNumber Question array index
+ * @param {array} questionOptions An array of answer options
+ * returns {string} HTML div, label, and radio buttons
+ */
+function getQuestionOptions( questionNumber, questionOptions ) {
+  var answerOptions = [];
+
+  if (questionOptions.length) {
+    for (var index = 0; index < questionOptions.length; index++) {
+      answerOptions.push('<div class="form-check"><label class="form-check-label text-capitalize" for="' + questionNumber + '-' + index + '"><input class="form-check-input" type="radio" name="answer-' + questionNumber + '" id="' + questionNumber + '-' + index + '">' + questionOptions[index] + '</label></div>');
+    }
+  }
+
+  return answerOptions.join('');
+}
+// Test for getQuestionOptions
+//console.log(getQuestionOptions( 0, questionPool[0].choices));
+
+  var startViewModel = {
+    questionNumber: '-',
+    question: 'Would you like to play a fun game?',
+    questionOptions: '',
+    questionPrev: '',
+    questionNext: '',
+    gameSubmit: 'Play'
+  };
+
+  ko.applyBindings( startViewModel );
+console.log(startViewModel);

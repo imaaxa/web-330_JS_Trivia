@@ -20,7 +20,7 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <!-- JavaScript Libraries -->
-    <script src="../knockout-3.5.0.js"></script>
+    <script src="script/knockout-3.5.0.js"></script>
 
     <link rel="stylesheet" href="css/styles.css">
   </head>
@@ -34,10 +34,10 @@
 
         <!-- Start Question count -->
         <div class="d-flex flex-row justify-content-between">
-          <h2>Question <spam class="question-index" data-bind="value:questionNumber">1</spam>
+          <h2>Question <span class="question-index" data-bind="value:questionNumber">1</spam>
           </h2>
           <h2>
-            <spam class="question-index" data-bind="value:questionNumber">1</spam> of 10
+            <span class="question-index" data-bind="value:questionNumber">1</span> of 10
           </h2>
         </div>
       </header>
@@ -46,8 +46,8 @@
       <main class="jumbotron">
 
         <!-- Start Question -->
-        <div class="game-body rounded-lg" data-bind="value:question">
-          <p>Would you like to play a game?</p>
+        <div class="game-body rounded-lg">
+          <p><span data-bind="value:question"></span></p>
         </div>
         <!-- End Question Options -->
 
@@ -93,8 +93,8 @@
         <!-- Start Question switching -->
         <div class="game-progress d-flex flex-row justify-content-between">
           <!-- Buttons will be disabled at beginning or end of quiz using "disabled" -->
-          <button class="btn btn-secondary btn-sm text-capitalize"  data-bind="value:questionPrev" disabled>Previous</button>
-          <button class="btn btn-secondary btn-sm text-capitalize"  data-bind="value:questionNext">Next</button>
+          <button class="btn btn-secondary btn-sm text-capitalize" disabled><span data-bind="value:questionPrev">Previous</span></button>
+          <button class="btn btn-secondary btn-sm text-capitalize"><span data-bind="value:questionNext">Next</span></button>
         </div>
         <!-- End Question switching -->
 
@@ -102,7 +102,7 @@
 
       <!-- Start game submit -->
       <footer class="d-flex flex-row justify-content-end">
-        <button class="btn btn-primary btn-lg" type="submit" data-bind="value:gameSubmit">Submit Answers</button>
+        <button class="btn btn-primary btn-lg" type="submit"><span data-bind="value:gameSubmit">Submit Answers</span></button>
       </footer>
       <!-- End game submit -->
 
