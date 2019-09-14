@@ -34,10 +34,10 @@
 
         <!-- Start Question count -->
         <div class="d-flex flex-row justify-content-between">
-          <h2>Question <span class="question-index" data-bind="text: questionNumber">1</spam>
+          <h2>Question <span class="question-index" data-bind="text: questionIndex"></spam>
           </h2>
           <h2>
-            <span class="question-index" data-bind="text: questionNumber">1</span> of 10
+            <span class="question-index" data-bind="text: questionIndex"></span> of 10
           </h2>
         </div>
       </header>
@@ -52,49 +52,21 @@
         <!-- End Question Options -->
 
         <!-- Start Question Options -->
-        <div class="game-selection" data-bind="text: questionOptions">
-          <form action="#" method="post">
-            <div class="form-group">
-              <div class="form-check">
-                <label class="form-check-label text-capitalize" for="answer-1a">
-                  <input class="form-check-input" type="radio" name="answer-1" id="answer-1a">
-                  chess
-                </label>
-              </div>
-              <div class="form-check">
-                <label class="form-check-label text-capitalize" for="answer-1b">
-                  <input class="form-check-input" type="radio" name="answer-1" id="answer-1b">
-                  checkers
-                </label>
-              </div>
-              <div class="form-check">
-                <label class="form-check-label text-capitalize" for="answer-1c">
-                  <input class="form-check-input" type="radio" name="answer-1" id="answer-1c">
-                  tic-tac-toe
-                </label>
-              </div>
-              <div class="form-check">
-                <label class="form-check-label text-capitalize" for="answer-1d">
-                  <input class="form-check-input" type="radio" name="answer-1" id="answer-1d">
-                  backgammon
-                </label>
-              </div>
-              <div class="form-check">
-                <label class="form-check-label text-capitalize" for="answer-1e">
-                  <input class="form-check-input" type="radio" name="answer-1" id="answer-1e">
-                  global thermonuclear war
-                </label>
-              </div>
-            </div>
-          </form>
+        <div class="game-selection">
+
+          <!-- Posible answers go here -->
+          <div class="form-group" data-bind="text: questionOptions"></div>
+
         </div>
         <!-- Start Question Options -->
 
         <!-- Start Question switching -->
         <div class="game-progress d-flex flex-row justify-content-between">
+
           <!-- Buttons will be disabled at beginning or end of quiz using "disabled" -->
-          <span data-bind="html: questionPrev"></span>
-          <span data-bind="html: questionNext"></span>
+          <button data-bind="click: decrementClickCounter" class="btn btn-secondary btn-md text-capitalize" value="-1">Prev</button>
+          <button data-bind="click: incrementClickCounter" class="btn btn-secondary btn-md text-capitalize" value="1">Next</button>
+
         </div>
         <!-- End Question switching -->
 
@@ -102,7 +74,12 @@
 
       <!-- Start game submit -->
       <footer class="d-flex flex-row justify-content-end">
-        <span data-bind="html: gameSubmit"></span>
+
+        <!--<span data-bind="html: btnSubmit"></span>-->
+        <button data-bind="click: startGame, value: btnSubmit.value" class=" btn btn-primary btn-lg text-capitalize">
+          <span data-bind="text: btnSubmit.text"></span>
+        </button>
+
       </footer>
       <!-- End game submit -->
 

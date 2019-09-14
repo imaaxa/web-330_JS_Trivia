@@ -26,6 +26,8 @@ var questionPool = [
   }
 ];
 
+var game = false;
+
 // Script Start
 
 /**
@@ -48,31 +50,41 @@ function getQuestionOptions( questionNumber, questionOptions ) {
 // Test for getQuestionOptions
 //console.log(getQuestionOptions( 0, questionPool[0].choices));
 
-/**
- * Takes the questionPool.choices array and wraps the data inside HTML
- * @param {string} text Text to place inside button
- * @param {int}    value Button value
- * @param {string} color Bootstrap class for color
- * @param {string} size Bootstrap class for size
- * @param {bool}   disabled (optional) true/false is button disabled
- * returns {string} HTML for a button
- */
-function getButton(text, value, color, size, disabled) {
-  var status = (disabled) ? 'disabled' : '';
-
-  return '<button class="btn ' + color + ' ' + size + ' text-capitalize" value="' + value + '" ' + status + '>' + text + '</button>';
-}
-//console.log(getButton('Hello', -1, 'secondary', 'md', false));
-
 
 // KO functions
-var startViewModel = {
-  questionNumber: '-',
+var ViewModel = {
+  questionIndex: ko.observable(0),
   question: 'Would you like to play a fun game?',
   questionOptions: '',
-  questionPrev: getButton('Prev', -1, 'btn-secondary', 'btn-md', true),
-  questionNext: getButton('Next', 1, 'btn-secondary', 'btn-md', true),
-  gameSubmit: getButton('Play', 2, 'btn-primary', 'btn-lg', false),
+
+  btnSubmit: {
+    text: ko.observable('Play Game'),
+    value: ko.observable(0)
+  },
+
+  incrementClickCounter : function() {
+    var previousCount = Number(this.questionIndex());
+    if (previousCount < 10) {
+      this.questionIndex(previousCount + 1);
+    }
+  },
+
+  decrementClickCounter: function () {
+    var previousCount = Number(this.questionIndex());
+    if (previousCount > 1) {
+      this.questionIndex(previousCount - 1);
+    }
+  },
+
+  startGame: function () {
+    if (this.btnSubmit.value() == 0 ) {
+      this.btnSubmit.text('Submit Answers');
+      this.btnSubmit.value(1);
+    } else if (this.btnSubmit.value() == 1 ) {
+      this.btnSubmit.text('New Game');
+      this.btnSubmit.value(0);
+    }
+  }
 };
 
-ko.applyBindings( startViewModel );
+ko.applyBindings(ViewModel);
