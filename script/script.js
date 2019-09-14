@@ -48,14 +48,22 @@ function getQuestionOptions( questionNumber, questionOptions ) {
 // Test for getQuestionOptions
 //console.log(getQuestionOptions( 0, questionPool[0].choices));
 
-  var startViewModel = {
-    questionNumber: '-',
-    question: 'Would you like to play a fun game?',
-    questionOptions: '',
-    questionPrev: '',
-    questionNext: '',
-    gameSubmit: 'Play'
-  };
+function getButton(text, value, color, size, disabled) {
+  var status = (disabled) ? 'disabled' : '';
 
-  ko.applyBindings( startViewModel );
-console.log(startViewModel);
+  return '<button class="btn btn-' + color + ' btn-' + size + ' text-capitalize" value="' + value + '" ' + status + '>' + text + '</button>';
+}
+//console.log(getButton('Hello', -1, 'secondary', 'md', false));
+
+
+// KO functions
+var startViewModel = {
+  questionNumber: '-',
+  question: 'Would you like to play a fun game?',
+  questionOptions: '',
+  questionPrev: getButton('Prev', -1, 'secondary', 'md', true),
+  questionNext: getButton('Next', 1, 'secondary', 'md', true),
+  gameSubmit: getButton('Play', 2, 'primary', 'lg', false),
+};
+
+ko.applyBindings( startViewModel );
