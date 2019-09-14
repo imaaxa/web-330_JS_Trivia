@@ -48,10 +48,19 @@ function getQuestionOptions( questionNumber, questionOptions ) {
 // Test for getQuestionOptions
 //console.log(getQuestionOptions( 0, questionPool[0].choices));
 
+/**
+ * Takes the questionPool.choices array and wraps the data inside HTML
+ * @param {string} text Text to place inside button
+ * @param {int}    value Button value
+ * @param {string} color Bootstrap class for color
+ * @param {string} size Bootstrap class for size
+ * @param {bool}   disabled (optional) true/false is button disabled
+ * returns {string} HTML for a button
+ */
 function getButton(text, value, color, size, disabled) {
   var status = (disabled) ? 'disabled' : '';
 
-  return '<button class="btn btn-' + color + ' btn-' + size + ' text-capitalize" value="' + value + '" ' + status + '>' + text + '</button>';
+  return '<button class="btn ' + color + ' ' + size + ' text-capitalize" value="' + value + '" ' + status + '>' + text + '</button>';
 }
 //console.log(getButton('Hello', -1, 'secondary', 'md', false));
 
@@ -61,9 +70,9 @@ var startViewModel = {
   questionNumber: '-',
   question: 'Would you like to play a fun game?',
   questionOptions: '',
-  questionPrev: getButton('Prev', -1, 'secondary', 'md', true),
-  questionNext: getButton('Next', 1, 'secondary', 'md', true),
-  gameSubmit: getButton('Play', 2, 'primary', 'lg', false),
+  questionPrev: getButton('Prev', -1, 'btn-secondary', 'btn-md', true),
+  questionNext: getButton('Next', 1, 'btn-secondary', 'btn-md', true),
+  gameSubmit: getButton('Play', 2, 'btn-primary', 'btn-lg', false),
 };
 
 ko.applyBindings( startViewModel );
