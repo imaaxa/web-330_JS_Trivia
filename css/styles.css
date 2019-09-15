@@ -26,6 +26,10 @@
   padding-bottom: 10px;
 }
 
+.form-check {
+  margin-bottom: .25em;
+}
+
 .btn-primary,
 .btn-primary:not(:disabled):not(.disabled):hover,
 .btn-primary:not(:disabled):not(.disabled):focus {
