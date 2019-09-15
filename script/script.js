@@ -27,14 +27,9 @@ var questionPool = [
       'C.var sentence = \'Good morning!Isn\'t it a"lovely" day?',
       'D.var sentence = \'Good morning!Isn\'t it a\'lovely\ day?'
     ],
-<<<<<<< HEAD
-    answer: 2 // Answer needs to be the array index
-  }, {
-=======
     answer : 2 // Answer needs to be the array index
   },
-  { 
->>>>>>> 189a1e51501f18a9851ad7e293e4b58530ace63e
+  {
     question: "What is 'NaN'",
     choices: [
       "A.None at Noon",
@@ -43,104 +38,64 @@ var questionPool = [
       "D.Not a Number"
     ],
     answer: 3
-<<<<<<< HEAD
-  }, {
-    question: "JavaScript is an OOP language by default?",
-    choices: [
-=======
   },
   {
     question:"JavaScript is an OOP language by default?",
     choices:[
->>>>>>> 189a1e51501f18a9851ad7e293e4b58530ace63e
       "A. True",
       "B. False"
     ],
     answer: 1
-<<<<<<< HEAD
-  }, {
-    question: "What is a prototype?",
-    choices: [
-=======
   },
-  { 
+  {
     question:"What is a prototype?",
     choices:[
->>>>>>> 189a1e51501f18a9851ad7e293e4b58530ace63e
       "A. A reference to another object",
       "B. The car from that car show",
       "C. Prototype... I have heard that before somewhere",
       "D. A new object that I just discovered"
     ],
     answer: 0
-<<<<<<< HEAD
-  }, {
-    question: "How do you create an object with constructors?",
-    choices: [
-=======
   },
-  { 
+  {
     question:"How do you create an object with constructors?",
     choices:[
->>>>>>> 189a1e51501f18a9851ad7e293e4b58530ace63e
       "A. Construct the object.",
       "B. Objects need constructors?",
       "C. Create a constructor function.",
       "D. JavaScript does not use objects."
     ],
     answer: 2
-<<<<<<< HEAD
-  }, {
-    question: "What is a callback function?",
-    choices: [
-=======
   },
-  { 
+  {
     question:"What is a callback function?",
     choices:[
->>>>>>> 189a1e51501f18a9851ad7e293e4b58530ace63e
       "A. Something I wish that person I meet the other day had.",
       "B. A function that is executed after another function has finished",
       "C. A function that calls you back.",
       "D. Callback? There is no such thing."
     ],
     answer: 1
-<<<<<<< HEAD
-  }, {
-    question: "What are the common uses of JavaScript?",
-    choices: [
-=======
   },
-  { 
+  {
     question:"What are the common uses of JavaScript?",
     choices:[
->>>>>>> 189a1e51501f18a9851ad7e293e4b58530ace63e
       "A. Web development",
       "B. Web Applications",
       "C. Web Servers",
       "D. All of the Above"
     ],
     answer: 3
-<<<<<<< HEAD
-  }, {
-    question: "A separate file is needed for JavaScript while programming a web app.?",
-    choices: [
-=======
   },
-  { 
+  {
     question:"A separate file is needed for JavaScript while programming a web app.?",
     choices:[
->>>>>>> 189a1e51501f18a9851ad7e293e4b58530ace63e
       "A. True",
       "B. False"
     ],
     answer: 1
-<<<<<<< HEAD
-  }, {
-=======
   },
   {
->>>>>>> 189a1e51501f18a9851ad7e293e4b58530ace63e
     question: "What is the benefit of including 'use strict' at the start of a JavaScript file?",
     choices: [
       "A. Voluntary way to enforce stricter parsing",
@@ -149,14 +104,10 @@ var questionPool = [
       "D. All of the above"
     ],
     answer: 3
-<<<<<<< HEAD
-  }];
-=======
   }
 ];
 
 var game = false;
->>>>>>> 189a1e51501f18a9851ad7e293e4b58530ace63e
 
 // Script Start
 
