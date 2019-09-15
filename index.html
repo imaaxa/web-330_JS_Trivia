@@ -47,7 +47,7 @@
 
         <!-- Start Question -->
         <div class="game-body rounded-lg">
-          <p><span data-bind="text: question"></span></p>
+          <span data-bind="text: question"></span>
         </div>
         <!-- End Question Options -->
 
@@ -55,7 +55,9 @@
         <div class="game-selection">
 
           <!-- Posible answers go here -->
-          <div class="form-group" data-bind="text: questionOptions"></div>
+          <div class="form-group">
+            <div data-bind="html: questionOptions"></div>
+          </div>
 
         </div>
         <!-- Start Question Options -->
@@ -82,7 +84,7 @@
 
       </footer>
       <!-- End game submit -->
-
+<pre data-bind="text: ko.toJSON($root, null, 2)"></pre>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

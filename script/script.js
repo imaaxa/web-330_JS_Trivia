@@ -15,6 +15,11 @@ var questionPool = [
   // I tend to use single quotes for strings,
   //     so all single quotes in the string needs to be escaped with a \
   {
+    question: 'Would you like to play a fun game?',
+    choices: ['', '', '', ''],
+    answer: 0
+  },
+  {
     question: 'When printed, which of these strings would output: Good morning!Isn’ t it a“ lovely” day?',
     choices: [
       'A.var sentence = "Good morning!Isn\'t it a"lovely" day?"',
@@ -22,11 +27,76 @@ var questionPool = [
       'C.var sentence = \'Good morning!Isn\'t it a"lovely" day?',
       'D.var sentence = \'Good morning!Isn\'t it a\'lovely\ day?'
     ],
-    answer : 2 // Answer needs to be the array index
-  }
-];
-
-var game = false;
+    answer: 2 // Answer needs to be the array index
+  }, {
+    question: "What is 'NaN'",
+    choices: [
+      "A.None at Noon",
+      "B.Neither animal Nor",
+      "C.Not a Neither",
+      "D.Not a Number"
+    ],
+    answer: 3
+  }, {
+    question: "JavaScript is an OOP language by default?",
+    choices: [
+      "A. True",
+      "B. False"
+    ],
+    answer: 1
+  }, {
+    question: "What is a prototype?",
+    choices: [
+      "A. A reference to another object",
+      "B. The car from that car show",
+      "C. Prototype... I have heard that before somewhere",
+      "D. A new object that I just discovered"
+    ],
+    answer: 0
+  }, {
+    question: "How do you create an object with constructors?",
+    choices: [
+      "A. Construct the object.",
+      "B. Objects need constructors?",
+      "C. Create a constructor function.",
+      "D. JavaScript does not use objects."
+    ],
+    answer: 2
+  }, {
+    question: "What is a callback function?",
+    choices: [
+      "A. Something I wish that person I meet the other day had.",
+      "B. A function that is executed after another function has finished",
+      "C. A function that calls you back.",
+      "D. Callback? There is no such thing."
+    ],
+    answer: 1
+  }, {
+    question: "What are the common uses of JavaScript?",
+    choices: [
+      "A. Web development",
+      "B. Web Applications",
+      "C. Web Servers",
+      "D. All of the Above"
+    ],
+    answer: 3
+  }, {
+    question: "A separate file is needed for JavaScript while programming a web app.?",
+    choices: [
+      "A. True",
+      "B. False"
+    ],
+    answer: 1
+  }, {
+    question: "What is the benefit of including 'use strict' at the start of a JavaScript file?",
+    choices: [
+      "A. Voluntary way to enforce stricter parsing",
+      "B. Voluntary way to enforce stricter error handling",
+      "C. Generate errors or throw exceptions for silent code errors",
+      "D. All of the above"
+    ],
+    answer: 3
+  }];
 
 // Script Start
 
@@ -41,7 +111,9 @@ function getQuestionOptions( questionNumber, questionOptions ) {
 
   if (questionOptions.length) {
     for (var index = 0; index < questionOptions.length; index++) {
-      answerOptions.push('<div class="form-check"><label class="form-check-label text-capitalize" for="' + questionNumber + '-' + index + '"><input class="form-check-input" type="radio" name="answer-' + questionNumber + '" id="' + questionNumber + '-' + index + '">' + questionOptions[index] + '</label></div>');
+      if (questionOptions[index] != '') {
+        answerOptions.push('<div class="form-check"><label class="form-check-label text-capitalize" for="' + questionNumber + '-' + index + '"><input class="form-check-input" type="radio" name="answer-' + questionNumber + '" id="' + questionNumber + '-' + index + '">' + questionOptions[index] + '</label></div>');
+        }
     }
   }
 
@@ -54,9 +126,6 @@ function getQuestionOptions( questionNumber, questionOptions ) {
 // KO functions
 var ViewModel = {
   questionIndex: ko.observable(0),
-  question: 'Would you like to play a fun game?',
-  questionOptions: '',
-
   btnSubmit: {
     text: ko.observable('Play Game'),
     value: ko.observable(0)
@@ -64,7 +133,7 @@ var ViewModel = {
 
   incrementClickCounter : function() {
     var previousCount = Number(this.questionIndex());
-    if (previousCount < 10) {
+    if (previousCount < (questionPool.length) - 1 ) {
       this.questionIndex(previousCount + 1);
     }
   },
@@ -78,13 +147,28 @@ var ViewModel = {
 
   startGame: function () {
     if (this.btnSubmit.value() == 0 ) {
+      this.incrementClickCounter();
       this.btnSubmit.text('Submit Answers');
       this.btnSubmit.value(1);
+
     } else if (this.btnSubmit.value() == 1 ) {
       this.btnSubmit.text('New Game');
       this.btnSubmit.value(0);
     }
   }
 };
+
+var question = ko.computed(function () {
+  var index = ViewModel.questionIndex();
+  return questionPool[index].question;
+});
+
+var questionOptions = ko.computed(function () {
+  var index = ViewModel.questionIndex();
+  //return questionPool[index].choices;
+  console.log(getQuestionOptions(index, questionPool[index].choices));
+
+  return getQuestionOptions(index, questionPool[index].choices);
+});
 
 ko.applyBindings(ViewModel);
