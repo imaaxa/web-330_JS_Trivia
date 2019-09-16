@@ -18,20 +18,42 @@ var answer6 = '1';
 var answer7 = '3';
 var answer8 = '1';
 var answer9 = '3';
+var answer10 = '3';
 
 var ViewModel = {
   questionIndex: ko.observable(1),
 
-  q1: ko.observable(),
-  q2: ko.observable(),
-  q3: ko.observable(),
-  q4: ko.observable(),
-  q5: ko.observable(),
-  q6: ko.observable(),
-  q7: ko.observable(),
-  q8: ko.observable(),
-  q9: ko.observable(),
-  q10: ko.observable(),
+  btnSubmit: {
+    text: ko.observable('Finish'),
+    value: ko.observable(20)
+  },
+  btnSubmitActive: ko.observable(true),
+
+  score: ko.observable(0),
+
+  q1: ko.observable(0),
+  q2: ko.observable(0),
+  q3: ko.observable(0),
+  q4: ko.observable(0),
+  q5: ko.observable(0),
+  q6: ko.observable(0),
+  q7: ko.observable(0),
+  q8: ko.observable(0),
+  q9: ko.observable(0),
+  q10: ko.observable(0),
+
+  a1: ko.observable(false),
+  a2: ko.observable(false),
+  a3: ko.observable(false),
+  a4: ko.observable(false),
+  a5: ko.observable(false),
+  a6: ko.observable(false),
+  a7: ko.observable(false),
+  a8: ko.observable(false),
+  a9: ko.observable(false),
+  a10: ko.observable(false),
+
+  finalMessage: ko.observable(''),
 
   canDecrement: ko.observable(false),
   canIncrement: ko.observable(true),
@@ -51,6 +73,14 @@ var ViewModel = {
       this.questionIndex(previousCount - 1);
     }
     this.checkIncrements();
+  },
+
+  endGame: function () {
+    this.btnSubmit.text('Game Over');
+    this.btnSubmitActive(false);
+    this.getScore();
+    this.questionIndex(20);
+    this.checkIncrements();
   }
 }
 ko.applyBindings(ViewModel);
@@ -58,59 +88,78 @@ ko.applyBindings(ViewModel);
 // Computed Observables
 ViewModel.points1 = ko.computed(function () {
   test = ViewModel.q1();
-  return (test === answer1) ? 10 : 0;
+  var pass = (test === answer1) ? true : false;
+  ViewModel.a1(pass);
+  return pass ? 10 : 0;
 });
 
 ViewModel.points2 = ko.computed(function () {
   test = ViewModel.q2();
-  return (test === answer2) ? 10 : 0;
+  var pass = (test === answer2) ? true : false;
+  ViewModel.a2(pass);
+  return pass ? 10 : 0;
 });
 
 ViewModel.points3 = ko.computed(function () {
   test = ViewModel.q3();
-  return (test === answer3) ? 10 : 0;
+  var pass = (test === answer3) ? true : false;
+  ViewModel.a3(pass);
+  return pass ? 10 : 0;
 });
 
 ViewModel.points4 = ko.computed(function () {
   test = ViewModel.q4();
-  return (test === answer4) ? 10 : 0;
+  var pass = (test === answer4) ? true : false;
+  ViewModel.a3(pass);
+  return pass ? 10 : 0;
 });
 
 ViewModel.points5 = ko.computed(function () {
   test = ViewModel.q5();
-  return (test === answer5) ? 10 : 0;
+  var pass = (test === answer5) ? true : false;
+  ViewModel.a3(pass);
+  return pass ? 10 : 0;
 });
 
 ViewModel.points6 = ko.computed(function () {
   test = ViewModel.q6();
-  return (test === answer6) ? 10 : 0;
+  var pass = (test === answer6) ? true : false;
+  ViewModel.a3(pass);
+  return pass ? 10 : 0;
 });
 
 ViewModel.points7 = ko.computed(function () {
   test = ViewModel.q7();
-  return (test === answer7) ? 10 : 0;
+  var pass = (test === answer7) ? true : false;
+  ViewModel.a3(pass);
+  return pass ? 10 : 0;
 });
 
 ViewModel.points8 = ko.computed(function () {
   test = ViewModel.q8();
-  return (test === answer8) ? 10 : 0;
+  var pass = (test === answer8) ? true : false;
+  ViewModel.a3(pass);
+  return pass ? 10 : 0;
 });
 
 ViewModel.points9 = ko.computed(function () {
   test = ViewModel.q9();
-  return (test === answer9) ? 10 : 0;
+  var pass = (test === answer9) ? true : false;
+  ViewModel.a3(pass);
+  return pass ? 10 : 0;
 });
 
-/*ViewModel.points10 = ko.computed(function () {
+ViewModel.points10 = ko.computed(function () {
   test = ViewModel.q10();
-  return (test === answer10) ? 10 : 0;
-});*/
+  var pass = (test === answer10) ? true : false;
+  ViewModel.a3(pass);
+  return pass ? 10 : 0;
+});
 
 ViewModel.checkIncrements = function () {
   var index = Number(this.questionIndex());
   this.canDecrement(true);
   this.canIncrement(true);
-  console.log(index);
 
   switch (index) {
     case 1:
@@ -119,6 +168,16 @@ ViewModel.checkIncrements = function () {
     case 10:
       this.canIncrement(false);
       break;
+    case 20:
+      this.canDecrement(false);
+      this.canIncrement(false);
+      break;
   }
+}
+
+ViewModel.getScore = function () {
+  var total = 0;
+  var total = parseInt(this.points1()) + parseInt(this.points2()) + parseInt(this.points3()) + parseInt(this.points4()) + parseInt(this.points5()) + parseInt(this.points6()) + parseInt(this.points7()) + parseInt(this.points8()) + parseInt(this.points9()) + parseInt(this.points10());
+  this.score(total);
 }
 // Script Start

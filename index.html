@@ -43,7 +43,7 @@
       </header>
       <!-- End Question count -->
 
-      <main class="jumbotron">
+      <main class="jumbotron" data-bind="css: { done: questionIndex() == 20 }">
 
         <!-- Start Question -->
         <div class="game-body rounded-lg">
@@ -52,36 +52,105 @@
             <span>When printed, which of these strings would output: Good morning! Isn’t it a “lovely” day?</span>
           </div>
 
-          <div id="q2" data-bind="css: { hide: questionIndex() != 2 }">
+          <div id="q2" class="hide" data-bind="css: { hide: questionIndex() != 2 }">
             <span>What is 'NaN'</span>
           </div>
 
-          <div id="q3" data-bind="css: { hide: questionIndex() != 3 }">
+          <div id="q3" class="hide" data-bind="css: { hide: questionIndex() != 3 }">
             <span>JavaScript is an OOP language by default?</span>
           </div>
 
-          <div id="q4" data-bind="css: { hide: questionIndex() != 4 }">
+          <div id="q4" class="hide" data-bind="css: { hide: questionIndex() != 4 }">
             <span>What is a prototype?</span>
           </div>
 
-          <div id="q5" data-bind="css: { hide: questionIndex() != 5 }">
+          <div id="q5" class="hide" data-bind="css: { hide: questionIndex() != 5 }">
             <span>How do you create an object with constructors?</span>
           </div>
 
-          <div id="q6" data-bind="css: { hide: questionIndex() != 6 }">
+          <div id="q6" class="hide" data-bind="css: { hide: questionIndex() != 6 }">
             <span>What is a callback function?</span>
           </div>
 
-          <div id="q7" data-bind="css: { hide: questionIndex() != 7 }">
+          <div id="q7" class="hide" data-bind="css: { hide: questionIndex() != 7 }">
             <span>What are the common uses of JavaScript?</span>
           </div>
 
-          <div id="q8" data-bind="css: { hide: questionIndex() != 8 }">
+          <div id="q8" class="hide" data-bind="css: { hide: questionIndex() != 8 }">
             <span>A separate file is needed for JavaScript while programming a web app.?</span>
           </div>
 
-          <div id="q9" data-bind="css: { hide: questionIndex() != 9 }">
+          <div id="q9" class="hide" data-bind="css: { hide: questionIndex() != 9 }">
             <span>What is the benefit of including 'use strict' at the start of a JavaScript file?</span>
+          </div>
+
+          <div id="q10" class="hide" data-bind="css: { hide: questionIndex() != 10 }">
+            <span>What is the benefit of including 'use strict' at the start of a JavaScript file?</span>
+          </div>
+
+          <!-- Final screen -->
+          <div id="q20" class="hide" data-bind="css: { hide: questionIndex() != 20 }">
+            <h2>Your score: <span data-bind="text: score"></span>%</h2>
+            <div>
+              <h2>Question 1</h2>
+              <p>When printed, which of these strings would output: Good morning! Isn’t it a “lovely” day?</p>
+              <p class="correctAnswer correct">var sentence = 'Good morning! Isn't it a "lovely" day?</p>
+              <p class="userAnswer userAnswer-1" data-bind="css: { correct: a1(), incorrect: a1() != true }"></p>
+            </div>
+            <div>
+              <h2>Question 2</h2>
+              <p>What is 'NaN'</p>
+              <p class="correctAnswer">Not a Number</p>
+              <p class="userAnswer userAnswer-2"></p>
+            </div>
+            <div>
+              <h2>Question 3</h2>
+              <p>JavaScript is an OOP language by default?</p>
+              <p class="correctAnswer">False</p>
+              <p class="userAnswer userAnswer-3"></p>
+            </div>
+            <div>
+              <h2>Question 4</h2>
+              <p>What is a prototype?</p>
+              <p class="correctAnswer">A reference to another object</p>
+              <p class="userAnswer userAnswer-4"></p>
+            </div>
+            <div>
+              <h2>Question 5</h2>
+              <p>How do you create an object with constructors?</p>
+              <p class="correctAnswer">Create a constructor function.</p>
+              <p class="userAnswer userAnswer-5"></p>
+            </div>
+            <div>
+              <h2>Question 6</h2>
+              <p>What is a callback function?</p>
+              <p class="correctAnswer">A function that is executed after another function has finished</p>
+              <p class="userAnswer userAnswer-6"></p>
+            </div>
+            <div>
+              <h2>Question 7</h2>
+              <p>What are the common uses of JavaScript?</p>
+              <p class="correctAnswer">All of the Above</p>
+              <p class="userAnswer userAnswer-7"></p>
+            </div>
+            <div>
+              <h2>Question 8</h2>
+              <p>A separate file is needed for JavaScript while programming a web app.?</p>
+              <p class="correctAnswer">False</p>
+              <p class="userAnswer userAnswer-8"></p>
+            </div>
+            <div>
+              <h2>Question 9</h2>
+              <p>What is the benefit of including 'use strict' at the start of a JavaScript file?</p>
+              <p class="correctAnswer">All of the above</p>
+              <p class="userAnswer userAnswer-9"></p>
+            </div>
+            <div>
+              <h2>Question 10</h2>
+              <p>What is the benefit of including 'use strict' at the start of a JavaScript file?</p>
+              <p class="correctAnswer">All of the above</p>
+              <p class="userAnswer userAnswer-10"></p>
+            </div>
           </div>
 
           <!-- Add one more question-->
@@ -337,6 +406,40 @@
                 </div>
               </div>
 
+              <div id="a10" data-bind="css: { hide: questionIndex() != 10 }">
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="10-0">
+                    <input data-bind="checked: q10" class="form-check-input" type="radio" name="answer-10" id="10-0"
+                      value="0">
+                    Voluntary way to enforce stricter parsing
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="10-1">
+                    <input data-bind="checked: q10" class="form-check-input" type="radio" name="answer-10" id="10-1"
+                      value="1">
+                    Voluntary way to enforce stricter error handling
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="10-2">
+                    <input data-bind="checked: q10" class="form-check-input" type="radio" name="answer-10" id="10-2"
+                      value="2">
+                    Generate errors or throw exceptions for silent code errors
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="10-3">
+                    <input data-bind="checked: q10" class="form-check-input" type="radio" name="answer-10" id="10-3"
+                      value="3">
+                    All of the above
+                  </label>
+                </div>
+              </div>
+
               <!-- Add one more answer set -->
             </div>
           </div>
@@ -359,11 +462,11 @@
       <!-- Start game submit -->
       <footer class="d-flex flex-row justify-content-end">
 
-        <!--<span data-bind="html: btnSubmit"></span>
-        <button data-bind="click: startGame, value: btnSubmit.value" class=" btn btn-primary btn-lg text-capitalize">
+        <!--<span data-bind="html: btnSubmit"></span> -->
+        <button data-bind="click: endGame, value: btnSubmit.value, enable: btnSubmitActive" class=" btn btn-primary btn-lg text-capitalize">
           <span data-bind="text: btnSubmit.text"></span>
         </button>
--->
+
       </footer>
       <!-- End game submit -->
 <pre data-bind="text: ko.toJSON($root, null, 2)"></pre>

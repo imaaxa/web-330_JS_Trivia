@@ -19,6 +19,10 @@
   padding: 1rem 2rem;
 }
 
+.jumbotron.done {
+  display: block;
+}
+
 .game-body {
   background-color: #fff;
   box-shadow: .1rem .1rem .15rem rgba(0, 0, 0, .25) inset;
@@ -88,4 +92,28 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0);
   border-color: transparent;
   box-shadow: 0 0 1rem rgba(0, 0, 0, .5);
+}
+
+.correctAnswer::before,
+.userAnswer::before {
+  margin-right: 1em;
+  font-weight: bold;
+  font-style: italic;
+  font-size: .9em;
+}
+
+.correctAnswer::before {
+  content: 'Correct Answer:';
+}
+
+.userAnswer::before {
+  content: 'Your Answer:';
+}
+
+.correct {
+  color: green;
+}
+
+.incorrect {
+  color: red;
 }
