@@ -33,11 +33,18 @@
         </div>
 
         <!-- Start Question count -->
-        <div class="d-flex flex-row justify-content-between">
-          <h2 data-bind="css: { hide: questionIndex() == 20 }">Question <span class="question-index" data-bind="text: questionIndex"></span>
+        <!-- Displays during the game and displays question index -->
+        <div class="d-flex flex-row justify-content-between" data-bind="css: { hide: questionIndex() == 20 }">
+          <h2>Question <span class="question-index" data-bind="text: questionIndex"></span>
           </h2>
-          <h2 data-bind="css: { hide: questionIndex() == 20 }">
+          <h2>
             <span class="question-index" data-bind="text: questionIndex"></span> of 10
+          </h2>
+        </div>
+
+        <!-- Displays after the game is over and displays the rank -->
+        <div class="d-flex flex-row justify-content-between hide" data-bind=" css: { hide: questionIndex() != 20 }">
+          <h2>Rank: <span class="question-index" data-bind="text: rank"></span>
           </h2>
         </div>
       </header>

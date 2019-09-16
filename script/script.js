@@ -37,6 +37,7 @@ var ViewModel = {
 
   // Keep track of the score
   score: ko.observable(0),
+  rank: ko.observable('WTF'),
 
   // Keeps track of user's answer selection
   q1: ko.observable(0),
@@ -92,6 +93,7 @@ var ViewModel = {
     this.btnSubmit.text('Game Over');
     this.btnSubmitActive(false);
     this.getScore();
+    this.checkRank();
     this.questionIndex(20);
     this.checkIncrements();
   }
@@ -173,6 +175,19 @@ ViewModel.points10 = ko.computed(function () {
   return pass ? 10 : 0;
 });
 
+ViewModel.checkRank = function () {
+  var value = ViewModel.score() / 10;
+  console.log(ViewModel.score() );
+
+  if (value > 7) {
+    this.rank('Expert');
+  } else if (value > 5) {
+    this.rank('Novice');
+  } else {
+    this.rank('Beginner');
+  }
+}
+
 // Uses questionIndex to set active status on Prev/Next buttons
 ViewModel.checkIncrements = function () {
   var index = Number(this.questionIndex());
@@ -198,7 +213,7 @@ ViewModel.checkIncrements = function () {
 // Adds up all the points
 ViewModel.getScore = function () {
   var total = 0;
-  var total = parseInt(this.points1()) + parseInt(this.points2()) + parseInt(this.points3()) + parseInt(this.points4()) + parseInt(this.points5()) + parseInt(this.points6()) + parseInt(this.points7()) + parseInt(this.points8()) + parseInt(this.points9()) + parseInt(this.points10());
+  total = parseInt(this.points1()) + parseInt(this.points2()) + parseInt(this.points3()) + parseInt(this.points4()) + parseInt(this.points5()) + parseInt(this.points6()) + parseInt(this.points7()) + parseInt(this.points8()) + parseInt(this.points9()) + parseInt(this.points10());
   this.score(total);
 }
 
