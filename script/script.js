@@ -19,7 +19,7 @@ var answer5 = '2';
 var answer6 = '1';
 var answer7 = '3';
 var answer8 = '1';
-var answer9 = '3';
+var answer9 = '2';
 var answer10 = '3';
 
 var ViewModel = {
