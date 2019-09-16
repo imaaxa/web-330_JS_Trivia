@@ -110,49 +110,49 @@ ViewModel.points3 = ko.computed(function () {
 ViewModel.points4 = ko.computed(function () {
   test = ViewModel.q4();
   var pass = (test === answer4) ? true : false;
-  ViewModel.a3(pass);
+  ViewModel.a4(pass);
   return pass ? 10 : 0;
 });
 
 ViewModel.points5 = ko.computed(function () {
   test = ViewModel.q5();
   var pass = (test === answer5) ? true : false;
-  ViewModel.a3(pass);
+  ViewModel.a5(pass);
   return pass ? 10 : 0;
 });
 
 ViewModel.points6 = ko.computed(function () {
   test = ViewModel.q6();
   var pass = (test === answer6) ? true : false;
-  ViewModel.a3(pass);
+  ViewModel.a6(pass);
   return pass ? 10 : 0;
 });
 
 ViewModel.points7 = ko.computed(function () {
   test = ViewModel.q7();
   var pass = (test === answer7) ? true : false;
-  ViewModel.a3(pass);
+  ViewModel.a7(pass);
   return pass ? 10 : 0;
 });
 
 ViewModel.points8 = ko.computed(function () {
   test = ViewModel.q8();
   var pass = (test === answer8) ? true : false;
-  ViewModel.a3(pass);
+  ViewModel.a8(pass);
   return pass ? 10 : 0;
 });
 
 ViewModel.points9 = ko.computed(function () {
   test = ViewModel.q9();
   var pass = (test === answer9) ? true : false;
-  ViewModel.a3(pass);
+  ViewModel.a9(pass);
   return pass ? 10 : 0;
 });
 
 ViewModel.points10 = ko.computed(function () {
   test = ViewModel.q10();
   var pass = (test === answer10) ? true : false;
-  ViewModel.a3(pass);
+  ViewModel.a10(pass);
   return pass ? 10 : 0;
 });
 
@@ -180,4 +180,12 @@ ViewModel.getScore = function () {
   var total = parseInt(this.points1()) + parseInt(this.points2()) + parseInt(this.points3()) + parseInt(this.points4()) + parseInt(this.points5()) + parseInt(this.points6()) + parseInt(this.points7()) + parseInt(this.points8()) + parseInt(this.points9()) + parseInt(this.points10());
   this.score(total);
 }
+
+// jQuery
+$(":radio").on('click', function (event) {
+  var userSelection = $(this).next().text();
+  var answerId = $(this).attr('id').split('-');
+
+  $('.userAnswer-' + answerId[0]).text(userSelection);
+});
 // Script Start
