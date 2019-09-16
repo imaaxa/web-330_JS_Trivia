@@ -48,6 +48,9 @@
         <!-- Start Question -->
         <div class="game-body rounded-lg">
 
+          <!--
+            Each question data block has css data-dind to hide/show based upon the question index
+          -->
           <div id="q1" data-bind="css: { hide: questionIndex() != 1 }">
             <span>When printed, which of these strings would output: Good morning! Isn’t it a “lovely” day?</span>
           </div>
@@ -89,6 +92,11 @@
           </div>
 
           <!-- Final screen -->
+          <!--
+                Each question data block has css data-dind to hide/show based upon the question index
+                userAnswer text is wrapped in a p and has css data-dind to style color based upon correct/incorrect answer
+                The 'userAnswer' is set by jQuery as the answer radio buttons are selected
+              -->
           <div id="q20" class="hide" data-bind="css: { hide: questionIndex() != 20 }">
             <h2>Your score: <span data-bind="text: score"></span>%</h2>
             <div>
@@ -151,7 +159,9 @@
               <p class="correctAnswer">All of the above</p>
               <p class="userAnswer userAnswer-10" data-bind="css: { correct: a10(), incorrect: a10() != true }"></p>
             </div>
+
           </div>
+          <!-- End final screen -->
 
           <!-- Add one more question-->
         </div>
@@ -164,6 +174,12 @@
           <div class="form-group">
             <div>
 
+              <!-- Start Question answer options -->
+              <!--
+                Each question block has css data-dind to hide/show based upon the question index
+                Answer text is wrapped in a span with answer-wrapper in order to be targeted by jQuery
+                The 'id' is used by jQuery to calculate the question number
+              -->
               <div id="a1" data-bind="css: { hide: questionIndex() != 1 }">
                 <div class="form-check">
                   <label class="form-check-label text-capitalize" for="1-0">
@@ -440,8 +456,9 @@
                 </div>
               </div>
 
-              <!-- Add one more answer set -->
             </div>
+            <!-- End Question answer options -->
+
           </div>
 
         </div>
@@ -450,7 +467,7 @@
         <!-- Start Question switching -->
         <div class="game-progress d-flex flex-row justify-content-between">
 
-          <!-- Buttons will be disabled at beginning or end of quiz using "disabled" -->
+          <!-- Prev/Next Buttons: disabled/enabled as needed -->
           <button data-bind="click: decrementClickCounter, enable: canDecrement" class="btn btn-secondary btn-md text-capitalize" value="-1">Prev</button>
           <button data-bind="click: incrementClickCounter, enable: canIncrement" class="btn btn-secondary btn-md text-capitalize" value="1">Next</button>
 
@@ -458,19 +475,22 @@
         <!-- End Question switching -->
 
       </main>
+      <!-- End main -->
 
       <!-- Start game submit -->
       <footer class="d-flex flex-row justify-content-end">
 
-        <!--<span data-bind="html: btnSubmit"></span> -->
+        <!-- Submit Button -->
         <button data-bind="click: endGame, value: btnSubmit.value, enable: btnSubmitActive" class=" btn btn-primary btn-lg text-capitalize">
           <span data-bind="text: btnSubmit.text"></span>
         </button>
 
       </footer>
       <!-- End game submit -->
+
     </div>
 
+    <!-- Include jQuery, Popper, and Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"

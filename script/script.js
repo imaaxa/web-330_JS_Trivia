@@ -9,6 +9,8 @@
 */
 
 // Variables
+
+// Answer Key
 var answer1 = '2';
 var answer2 = '3';
 var answer3 = '1';
@@ -21,16 +23,22 @@ var answer9 = '3';
 var answer10 = '3';
 
 var ViewModel = {
+  // Keeps track of quetion number
+  // Ranges 1-10, 20 is game over
   questionIndex: ko.observable(1),
 
+  // Submit button information
   btnSubmit: {
     text: ko.observable('Finish'),
     value: ko.observable(20)
   },
+  // Submit button active/disable toggle
   btnSubmitActive: ko.observable(true),
 
+  // Keep track of the score
   score: ko.observable(0),
 
+  // Keeps track of user's answer selection
   q1: ko.observable(0),
   q2: ko.observable(0),
   q3: ko.observable(0),
@@ -42,6 +50,7 @@ var ViewModel = {
   q9: ko.observable(0),
   q10: ko.observable(0),
 
+  // Keeps track of correct answers
   a1: ko.observable(false),
   a2: ko.observable(false),
   a3: ko.observable(false),
@@ -53,11 +62,11 @@ var ViewModel = {
   a9: ko.observable(false),
   a10: ko.observable(false),
 
-  finalMessage: ko.observable(''),
-
+  // Prev/Next button active/disable toggles
   canDecrement: ko.observable(false),
   canIncrement: ko.observable(true),
 
+  // Increment the questionIndex and update Prev/Next toggles
   incrementClickCounter: function () {
     var previousCount = Number(this.questionIndex());
     if (previousCount < 10) {
@@ -66,6 +75,7 @@ var ViewModel = {
     this.checkIncrements();
   },
 
+  // Decrement the questionIndex and update Prev/Next toggles
   decrementClickCounter: function () {
     var previousCount = Number(this.questionIndex());
 
@@ -75,6 +85,9 @@ var ViewModel = {
     this.checkIncrements();
   },
 
+  // Change submit button label and disable it
+  // Get the score
+  // Set the questionIndex to 20 in order to display final screen
   endGame: function () {
     this.btnSubmit.text('Game Over');
     this.btnSubmitActive(false);
@@ -86,6 +99,10 @@ var ViewModel = {
 ko.applyBindings(ViewModel);
 
 // Computed Observables
+
+// Functions: (ViewModel.points#) for each question:
+//    Set pass/fail
+//    Return triggers class on final page user answers
 ViewModel.points1 = ko.computed(function () {
   test = ViewModel.q1();
   var pass = (test === answer1) ? true : false;
@@ -156,11 +173,14 @@ ViewModel.points10 = ko.computed(function () {
   return pass ? 10 : 0;
 });
 
+// Uses questionIndex to set active status on Prev/Next buttons
 ViewModel.checkIncrements = function () {
   var index = Number(this.questionIndex());
+  // Both are initially set to true
   this.canDecrement(true);
   this.canIncrement(true);
 
+  // Determins which ones need to be false
   switch (index) {
     case 1:
       this.canDecrement(false);
@@ -175,6 +195,7 @@ ViewModel.checkIncrements = function () {
   }
 }
 
+// Adds up all the points
 ViewModel.getScore = function () {
   var total = 0;
   var total = parseInt(this.points1()) + parseInt(this.points2()) + parseInt(this.points3()) + parseInt(this.points4()) + parseInt(this.points5()) + parseInt(this.points6()) + parseInt(this.points7()) + parseInt(this.points8()) + parseInt(this.points9()) + parseInt(this.points10());
@@ -182,10 +203,16 @@ ViewModel.getScore = function () {
 }
 
 // jQuery
+
+// Sets up the User selected answers for the final page
+// Adds a on click event for all the radio buttons
 $(":radio").on('click', function (event) {
+  // Gets the question text of the clicked  radio button
   var userSelection = $(this).next().text();
+  // Gets the id of the clicked radio button
   var answerId = $(this).attr('id').split('-');
 
+  // Copies selected answer text to user selected answer for the question
   $('.userAnswer-' + answerId[0]).text(userSelection);
 });
 // Script Start
