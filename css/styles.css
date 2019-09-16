@@ -1,3 +1,7 @@
+.hide {
+  display: none;
+}
+
 .card.card-body {
   margin-bottom: 1rem;
 }

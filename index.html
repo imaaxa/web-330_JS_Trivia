@@ -47,7 +47,44 @@
 
         <!-- Start Question -->
         <div class="game-body rounded-lg">
-          <span data-bind="text: question"></span>
+
+          <div id="q1" data-bind="css: { hide: questionIndex() != 1 }">
+            <span>When printed, which of these strings would output: Good morning! Isn’t it a “lovely” day?</span>
+          </div>
+
+          <div id="q2" data-bind="css: { hide: questionIndex() != 2 }">
+            <span>What is 'NaN'</span>
+          </div>
+
+          <div id="q3" data-bind="css: { hide: questionIndex() != 3 }">
+            <span>JavaScript is an OOP language by default?</span>
+          </div>
+
+          <div id="q4" data-bind="css: { hide: questionIndex() != 4 }">
+            <span>What is a prototype?</span>
+          </div>
+
+          <div id="q5" data-bind="css: { hide: questionIndex() != 5 }">
+            <span>How do you create an object with constructors?</span>
+          </div>
+
+          <div id="q6" data-bind="css: { hide: questionIndex() != 6 }">
+            <span>What is a callback function?</span>
+          </div>
+
+          <div id="q7" data-bind="css: { hide: questionIndex() != 7 }">
+            <span>What are the common uses of JavaScript?</span>
+          </div>
+
+          <div id="q8" data-bind="css: { hide: questionIndex() != 8 }">
+            <span>A separate file is needed for JavaScript while programming a web app.?</span>
+          </div>
+
+          <div id="q9" data-bind="css: { hide: questionIndex() != 9 }">
+            <span>What is the benefit of including 'use strict' at the start of a JavaScript file?</span>
+          </div>
+
+          <!-- Add one more question-->
         </div>
         <!-- End Question Options -->
 
@@ -56,7 +93,252 @@
 
           <!-- Posible answers go here -->
           <div class="form-group">
-            <div data-bind="html: questionOptions"></div>
+            <div>
+
+              <div id="a1" data-bind="css: { hide: questionIndex() != 1 }">
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="1-0">
+                    <input data-bind="checked: q1" class="form-check-input" type="radio" name="answer-1" id="1-0" value="0">
+                    var sentence = "Good morning! Isn't it a "lovely" day?"
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="1-1">
+                    <input data-bind="checked: q1" class="form-check-input" type="radio" name="answer-1" id="1-1" value="1">
+                    var sentence = "Good morning! Isn't it a 'lovely' day?"
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="1-2">
+                    <input data-bind="checked: q1" class="form-check-input" type="radio" name="answer-1" id="1-2" value="2">
+                    var sentence = 'Good morning! Isn't it a "lovely" day?
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="1-3">
+                    <input data-bind="checked: q1" class="form-check-input" type="radio" name="answer-1" id="1-3" value="3">
+                    var sentence = 'Good morning! Isn't it a 'lovely day?
+                  </label>
+                </div>
+              </div>
+
+              <div id="a2" data-bind="css: { hide: questionIndex() != 2 }">
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="2-0">
+                    <input data-bind="checked: q2" class="form-check-input" type="radio" name="answer-2" id="2-0" value="0">
+                    None at Noon
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="2-1">
+                    <input data-bind="checked: q2" class="form-check-input" type="radio" name="answer-2" id="2-1" value="1">
+                    Neither animal Nor
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="2-2">
+                    <input data-bind="checked: q2" class="form-check-input" type="radio" name="answer-2" id="2-2" value="2">
+                    Not a Neither
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="2-3">
+                    <input data-bind="checked: q2" class="form-check-input" type="radio" name="answer-2" id="2-3" value="3">
+                    Not a Number
+                  </label>
+                </div>
+              </div>
+
+              <div id="a3" data-bind="css: { hide: questionIndex() != 3 }">
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="3-0">
+                    <input data-bind="checked: q3" class="form-check-input" type="radio" name="answer-3" id="3-0" value="0">
+                    True
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="3-1">
+                    <input data-bind="checked: q3" class="form-check-input" type="radio" name="answer-3" id="3-1" value="1">
+                    False
+                  </label>
+                </div>
+              </div>
+
+              <div id="a4" data-bind="css: { hide: questionIndex() != 4 }">
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="4-0">
+                    <input data-bind="checked: q4" class="form-check-input" type="radio" name="answer-4" id="4-0" value="0">
+                    A reference to another object
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="4-1">
+                    <input data-bind="checked: q4" class="form-check-input" type="radio" name="answer-4" id="4-1" value="1">
+                    The car from that car show
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="4-2">
+                    <input data-bind="checked: q4" class="form-check-input" type="radio" name="answer-4" id="4-2" value="2">
+                    Prototype... I have heard that before somewhere
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="4-3">
+                    <input data-bind="checked: q4" class="form-check-input" type="radio" name="answer-4" id="4-3" value="3">
+                    A new object that I just discovered
+                  </label>
+                </div>
+              </div>
+
+              <div id="a5" data-bind="css: { hide: questionIndex() != 5 }">
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="5-0">
+                    <input data-bind="checked: q5" class="form-check-input" type="radio" name="answer-5" id="5-0" value="0">
+                    Construct the object.
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="5-1">
+                    <input data-bind="checked: q5" class="form-check-input" type="radio" name="answer-5" id="5-1" value="1">
+                    Objects need constructors?
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="5-2">
+                    <input data-bind="checked: q5" class="form-check-input" type="radio" name="answer-5" id="5-2" value="2">
+                    Create a constructor function.
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="5-3">
+                    <input data-bind="checked: q5" class="form-check-input" type="radio" name="answer-5" id="5-3" value="3">
+                    JavaScript does not use objects.
+                  </label>
+                </div>
+              </div>
+
+              <div id="a6" data-bind="css: { hide: questionIndex() != 6 }">
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="6-0">
+                    <input data-bind="checked: q6" class="form-check-input" type="radio" name="answer-6" id="6-0" value="0">
+                    Something I wish that person I meet the other day had.
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="6-1">
+                    <input data-bind="checked: q6" class="form-check-input" type="radio" name="answer-6" id="6-1" value="1">
+                    A function that is executed after another function has finished
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="6-2">
+                    <input data-bind="checked: q6" class="form-check-input" type="radio" name="answer-6" id="6-2" value="2">
+                    A function that calls you back.
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="6-3">
+                    <input data-bind="checked: q6" class="form-check-input" type="radio" name="answer-6" id="6-3" value="3">
+                    Callback? There is no such thing.
+                  </label>
+                </div>
+              </div>
+
+              <div id="a7" data-bind="css: { hide: questionIndex() != 7 }">
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="7-0">
+                    <input data-bind="checked: q7" class="form-check-input" type="radio" name="answer-7" id="7-0" value="0">
+                    Web development
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="7-1">
+                    <input data-bind="checked: q7" class="form-check-input" type="radio" name="answer-7" id="7-1" value="1">
+                    Web Applications
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="7-2">
+                    <input data-bind="checked: q7" class="form-check-input" type="radio" name="answer-7" id="7-2" value="2">
+                    Web Servers
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="7-3">
+                    <input data-bind="checked: q7" class="form-check-input" type="radio" name="answer-7" id="7-3" value="3">
+                    All of the Above
+                  </label>
+                </div>
+              </div>
+
+              <div id="a8" data-bind="css: { hide: questionIndex() != 8 }">
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="8-0">
+                    <input data-bind="checked: q8" class="form-check-input" type="radio" name="answer-8" id="8-0" value="0">
+                    True
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="8-1">
+                    <input data-bind="checked: q8" class="form-check-input" type="radio" name="answer-8" id="8-1" value="1">
+                    False
+                  </label>
+                </div>
+              </div>
+
+              <div id="a9" data-bind="css: { hide: questionIndex() != 9 }">
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="9-0">
+                    <input data-bind="checked: q9" class="form-check-input" type="radio" name="answer-9" id="9-0" value="0">
+                    Voluntary way to enforce stricter parsing
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="9-1">
+                    <input data-bind="checked: q9" class="form-check-input" type="radio" name="answer-9" id="9-1" value="1">
+                    Voluntary way to enforce stricter error handling
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="9-2">
+                    <input data-bind="checked: q9" class="form-check-input" type="radio" name="answer-9" id="9-2" value="2">
+                    Generate errors or throw exceptions for silent code errors
+                  </label>
+                </div>
+
+                <div class="form-check">
+                  <label class="form-check-label text-capitalize" for="9-3">
+                    <input data-bind="checked: q9" class="form-check-input" type="radio" name="answer-9" id="9-3" value="3">
+                    All of the above
+                  </label>
+                </div>
+              </div>
+
+              <!-- Add one more answer set -->
+            </div>
           </div>
 
         </div>
@@ -66,8 +348,8 @@
         <div class="game-progress d-flex flex-row justify-content-between">
 
           <!-- Buttons will be disabled at beginning or end of quiz using "disabled" -->
-          <button data-bind="click: decrementClickCounter" class="btn btn-secondary btn-md text-capitalize" value="-1">Prev</button>
-          <button data-bind="click: incrementClickCounter" class="btn btn-secondary btn-md text-capitalize" value="1">Next</button>
+          <button data-bind="click: decrementClickCounter, enable: canDecrement" class="btn btn-secondary btn-md text-capitalize" value="-1">Prev</button>
+          <button data-bind="click: incrementClickCounter, enable: canIncrement" class="btn btn-secondary btn-md text-capitalize" value="1">Next</button>
 
         </div>
         <!-- End Question switching -->
@@ -77,11 +359,11 @@
       <!-- Start game submit -->
       <footer class="d-flex flex-row justify-content-end">
 
-        <!--<span data-bind="html: btnSubmit"></span>-->
+        <!--<span data-bind="html: btnSubmit"></span>
         <button data-bind="click: startGame, value: btnSubmit.value" class=" btn btn-primary btn-lg text-capitalize">
           <span data-bind="text: btnSubmit.text"></span>
         </button>
-
+-->
       </footer>
       <!-- End game submit -->
 <pre data-bind="text: ko.toJSON($root, null, 2)"></pre>
