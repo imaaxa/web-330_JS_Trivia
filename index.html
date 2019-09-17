@@ -149,32 +149,11 @@
                 Answer text is wrapped in a span with answer-wrapper in order to be targeted by jQuery
                 The 'id' is used by jQuery to calculate the question number
               -->
-              <div id="a1" data-bind="visible: questionIndex() == 1">
+              <div id="a1" data-bind="visible: questionIndex() == 1, attr: { id: 'a' + questionIndex() }, foreach: questions()[questionIndex() - 1].options">
                 <div class="form-check">
-                  <label class="form-check-label text-capitalize" for="1-0">
-                    <input data-bind="checked: q1" class="form-check-input" type="radio" name="answer-1" id="1-0" value="0">
-                    <span class="answer-wrapper">var sentence = "Good morning! Isn't it a "lovely" day?"</span>
-                  </label>
-                </div>
-
-                <div class="form-check">
-                  <label class="form-check-label text-capitalize" for="1-1">
-                    <input data-bind="checked: q1" class="form-check-input" type="radio" name="answer-1" id="1-1" value="1">
-                    <span class="answer-wrapper">var sentence = "Good morning! Isn't it a 'lovely' day?"</span>
-                  </label>
-                </div>
-
-                <div class="form-check">
-                  <label class="form-check-label text-capitalize" for="1-2">
-                    <input data-bind="checked: q1" class="form-check-input" type="radio" name="answer-1" id="1-2" value="2">
-                    <span class="answer-wrapper">var sentence = 'Good morning! Isn't it a "lovely" day?</span>
-                  </label>
-                </div>
-
-                <div class="form-check">
-                  <label class="form-check-label text-capitalize" for="1-3">
-                    <input data-bind="checked: q1" class="form-check-input" type="radio" name="answer-1" id="1-3" value="3">
-                    <span class="answer-wrapper">var sentence = 'Good morning! Isn't it a 'lovely day?</span>
+                  <label class="form-check-label text-capitalize" data-bind="attr: { for: $root.questionIndex() + '-' + $index() }" >
+                    <input data-bind="checked: q1, attr: { id: $root.questionIndex() + '-' + $index(), value: $index() }" class="form-check-input" type="radio" name="answer-1">
+                    <span class="answer-wrapper" data-bind="text: $data"></span>
                   </label>
                 </div>
               </div>

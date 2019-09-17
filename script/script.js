@@ -31,44 +31,110 @@ var ViewModel = {
 
   questions: ko.observableArray([
     {
+      id: 1,
       question: 'When printed, which of these strings would output: Good morning! Isn’t it a “lovely” day?',
-      answer: 'var sentence = \'Good morning! Isn\'t it a "lovely" day?'
+      answer: 'var sentence = \'Good morning! Isn\'t it a "lovely" day?',
+      options: [
+        'var sentence = "Good morning! Isn\'t it a "lovely" day?"',
+        'var sentence = "Good morning! Isn\'t it a \'lovely\' day?"',
+        'var sentence = \'Good morning! Isn\'t it a "lovely" day?',
+        'var sentence = \'Good morning! Isn\'t it a \'lovely day?'
+      ]
     },
     {
+      id: 2,
       question: 'What is \'NaN\'',
-      answer: 'Not a Number'
+      answer: 'Not a Number',
+      options: [
+        'None at Noon',
+        'Neither animal Nor',
+        'Not a Neither',
+        'Not a Number '
+      ]
     },
     {
+      id: 3,
       question: 'JavaScript is an OOP language by default?',
-      answer: 'False'
+      answer: 'False',
+      options: [
+        'True',
+        'False'
+      ]
     },
     {
+      id: 4,
       question: 'What is a prototype?',
-      answer: 'A reference to another object'
+      answer: 'A reference to another object',
+      options: [
+        'A reference to another object',
+        'The car from that car show',
+        'Prototype... I have heard that before somewhere',
+        'A new object that I just discovered'
+      ]
     },
     {
+      id: 5,
       question: 'How do you create an object with constructors?',
-      answer: 'Create a constructor function.'
+      answer: 'Create a constructor function.',
+      options: [
+        'Construct the object.',
+        'Objects need constructors?',
+        'Create a constructor function.',
+        'JavaScript does not use objects.'
+      ]
     },
     {
+      id: 6,
       question: 'What is a callback function?',
-      answer: 'A function that is executed after another function has finished'
+      answer: 'A function that is executed after another function has finished',
+      options: [
+        'Something I wish that person I meet the other day had.',
+        'A function that is executed after another function has finished',
+        'A function that calls you back.',
+        'Callback? There is no such thing.'
+      ]
     },
     {
+      id: 7,
       question: 'What are the common uses of JavaScript?',
-      answer: 'All of the Above'
+      answer: 'All of the Above',
+      options: [
+        'Web development',
+        'Web Applications',
+        'Web Servers',
+        'All of the Above'
+      ]
     },
     {
+      id: 8,
       question: 'A separate file is needed for JavaScript while programming a web app.?',
-      answer: 'False'
+      answer: 'False',
+      options: [
+        'True',
+        'False'
+      ]
     },
     {
+      id: 9,
       question: 'When using the Modulus arithmetic operator (%), which of these equations is true?',
-      answer: 'All of the above'
+      answer: 'All of the above',
+      options: [
+        '50 % 4 = 0',
+        '50 % 4 = .08',
+        '50 % 4 = 2',
+        '50 % 4 = 12.5'
+      ]
     },
     {
+      id: 10,
       question: 'What is the benefit of including \'use strict\' at the start of a JavaScript file?',
-      answer: 'All of the above'
+      answer: 'All of the above',
+      options: [
+        'Voluntary way to enforce stricter parsing',
+        'Voluntary way to enforce stricter error handling',
+        'Generate errors or throw exceptions for silent code errors',
+        'All of the above'
+      ]
     },
     {}
   ]),
@@ -118,6 +184,12 @@ var ViewModel = {
   questionID: function () {
     var index = this.questionIndex();
     return 'q' + index;
+  },
+
+  // Returns id for options
+  optionID: function (option) {
+    var index = this.questionIndex();
+    return index + '-' + option;
   },
 
   // Increment the questionIndex and update Prev/Next toggles
