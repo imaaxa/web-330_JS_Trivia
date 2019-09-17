@@ -24,26 +24,59 @@ var answer10 = '3';
 
 var ViewModel = {
   // Keeps track of quetion number
-  // Ranges 1-10, 20 is game over
+  // Ranges 1-10, 11 is game over
   questionIndex: ko.observable(1),
 
+  gameOver: ko.observable(1),
+
   questions: ko.observableArray([
-    'When printed, which of these strings would output: Good morning! Isn’t it a “lovely” day?',
-    'What is \'NaN\'',
-    'JavaScript is an OOP language by default?',
-    'What is a prototype?',
-    'How do you create an object with constructors?',
-    'What is a callback function?',
-    'What are the common uses of JavaScript?',
-    'A separate file is needed for JavaScript while programming a web app.?',
-    'When using the Modulus arithmetic operator (%), which of these equations is true?',
-    'What is the benefit of including \'use strict\' at the start of a JavaScript file?'
+    {
+      question: 'When printed, which of these strings would output: Good morning! Isn’t it a “lovely” day?',
+      answer: 'var sentence = \'Good morning! Isn\'t it a "lovely" day?'
+    },
+    {
+      question: 'What is \'NaN\'',
+      answer: 'Not a Number'
+    },
+    {
+      question: 'JavaScript is an OOP language by default?',
+      answer: 'False'
+    },
+    {
+      question: 'What is a prototype?',
+      answer: 'A reference to another object'
+    },
+    {
+      question: 'How do you create an object with constructors?',
+      answer: 'Create a constructor function.'
+    },
+    {
+      question: 'What is a callback function?',
+      answer: 'A function that is executed after another function has finished'
+    },
+    {
+      question: 'What are the common uses of JavaScript?',
+      answer: 'All of the Above'
+    },
+    {
+      question: 'A separate file is needed for JavaScript while programming a web app.?',
+      answer: 'False'
+    },
+    {
+      question: 'When using the Modulus arithmetic operator (%), which of these equations is true?',
+      answer: 'All of the above'
+    },
+    {
+      question: 'What is the benefit of including \'use strict\' at the start of a JavaScript file?',
+      answer: 'All of the above'
+    },
+    {}
   ]),
 
   // Submit button information
   btnSubmit: {
     text: ko.observable('Finish'),
-    value: ko.observable(20),
+    value: ko.observable(0),
     active: ko.observable(true)
   },
 
@@ -106,15 +139,18 @@ var ViewModel = {
     this.checkIncrements();
   },
 
-  // Change submit button label and disable it
-  // Get the score
-  // Set the questionIndex to 20 in order to display final screen
+  // End of Game tasks
   endGame: function () {
+    // Set submit button values
     this.btnSubmit.text('Game Over');
     this.btnSubmit.active(false);
+
+    // Set Score, Rank, before Activate Final Game Screen
     this.getScore();
     this.checkRank();
-    this.questionIndex(20);
+    this.gameOver(this.btnSubmit.value());
+
+    // Set active state of Prev/Next
     this.checkIncrements();
   }
 }
@@ -208,24 +244,15 @@ ViewModel.checkRank = function () {
 
 // Uses questionIndex to set active status on Prev/Next buttons
 ViewModel.checkIncrements = function () {
-  var index = Number(this.questionIndex());
   // Both are initially set to true
   this.canDecrement(true);
   this.canIncrement(true);
 
-  // Determins which ones need to be false
-  switch (index) {
-    case 1:
-      this.canDecrement(false);
-      break;
-    case 10:
-      this.canIncrement(false);
-      break;
-    case 20:
-      this.canDecrement(false);
-      this.canIncrement(false);
-      break;
-  }
+  // Disable decrement if game over or on first question
+  (!this.gameOver() || this.questionIndex() == 1) ? this.canDecrement(false) : '';
+
+  // Disable increment if game over or on last question
+  (!this.gameOver() || this.questionIndex() == 10) ? this.canIncrement(false) : '';
 }
 
 // Adds up all the points

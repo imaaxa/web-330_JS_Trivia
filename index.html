@@ -37,11 +37,11 @@
           Displays  question index during the game
           Displays  rank after the game
         -->
-        <div class="">
-          <h2 data-bind="visible: questionIndex() != 20">
+        <div>
+          <h2 data-bind="visible: gameOver()">
             Question <span class="question-index" data-bind="text: questionIndex"></span> of 10
           </h2>
-          <h2 data-bind="visible: questionIndex() == 20">
+          <h2 data-bind="visible: gameOver() == 0">
             Rank: <span class="question-index" data-bind="text: rank"></span>
           </h2>
         </div>
@@ -49,85 +49,87 @@
       </header>
       <!-- End Question count -->
 
-      <main class="jumbotron" data-bind="css: { done: questionIndex() == 20 }">
+      <main class="jumbotron" data-bind="css: { done: gameOver() == 0 }">
 
         <!-- Start Question -->
         <div class="game-body rounded-lg">
 
-          <div data-bind="attr: { id: questionID() }">
-            <span data-bind="text: questions()[questionIndex() - 1]"></span>
+          <div data-bind="attr: { id: questionID() }, visible: gameOver()">
+            <span data-bind="text: questions()[questionIndex() - 1].question"></span>
           </div>
 
-          <!-- Final screen -->
           <!--
-                Each question data block has css data-dind to hide/show based upon the question index
-                userAnswer text is wrapped in a p and has css data-dind to style color based upon correct/incorrect answer
-                The 'userAnswer' is set by jQuery as the answer radio buttons are selected
+            Final screen
+            Each question data block has css data-dind to hide/show based upon the question index
+            userAnswer text is wrapped in a p and has css data-dind to style color based upon correct/incorrect answer
+            The 'userAnswer' is set by jQuery as the answer radio buttons are selected
+          -->
+          <div id="q20" data-bind="visible: gameOver() == 0">
 
-          <div id="q20" data-bind="visible: questionIndex() == 20">
             <h2>Your score: <span data-bind="text: score"></span>%</h2>
+
             <div>
               <h2>Question 1</h2>
-              <p>When printed, which of these strings would output: Good morning! Isn’t it a “lovely” day?</p>
+              <p data-bind="text: questions()[0].question"></p>
               <p class="correctAnswer">var sentence = 'Good morning! Isn't it a "lovely" day?</p>
               <p class="userAnswer userAnswer-1" data-bind="css: { correct: a1(), incorrect: a1() != true }"></p>
             </div>
             <div>
               <h2>Question 2</h2>
-              <p>What is 'NaN'</p>
+              <p data-bind="text: questions()[1].question"></p>
               <p class="correctAnswer">Not a Number</p>
               <p class="userAnswer userAnswer-2" data-bind="css: { correct: a2(), incorrect: a2() != true }"></p>
             </div>
             <div>
               <h2>Question 3</h2>
-              <p>JavaScript is an OOP language by default?</p>
+              <p data-bind="text: questions()[2].question"></p>
               <p class="correctAnswer">False</p>
               <p class="userAnswer userAnswer-3" data-bind="css: { correct: a3(), incorrect: a3() != true }"></p>
             </div>
             <div>
               <h2>Question 4</h2>
-              <p>What is a prototype?</p>
+              <p data-bind="text: questions()[3].question"></p>
               <p class="correctAnswer">A reference to another object</p>
               <p class="userAnswer userAnswer-4" data-bind="css: { correct: a4(), incorrect: a4() != true }"></p>
             </div>
             <div>
               <h2>Question 5</h2>
-              <p>How do you create an object with constructors?</p>
+              <p data-bind="text: questions()[4].question"></p>
               <p class="correctAnswer">Create a constructor function.</p>
               <p class="userAnswer userAnswer-5" data-bind="css: { correct: a5(), incorrect: a5() != true }"></p>
             </div>
             <div>
               <h2>Question 6</h2>
-              <p>What is a callback function?</p>
+              <p data-bind="text: questions()[5].question"></p>
               <p class="correctAnswer">A function that is executed after another function has finished</p>
               <p class="userAnswer userAnswer-6" data-bind="css: { correct: a6(), incorrect: a6() != true }"></p>
             </div>
             <div>
               <h2>Question 7</h2>
-              <p>What are the common uses of JavaScript?</p>
+              <p data-bind="text: questions()[6].question"></p>
               <p class="correctAnswer">All of the Above</p>
               <p class="userAnswer userAnswer-7" data-bind="css: { correct: a7(), incorrect: a7() != true }"></p>
             </div>
             <div>
               <h2>Question 8</h2>
-              <p>A separate file is needed for JavaScript while programming a web app.?</p>
+              <p data-bind="text: questions()[7].question"></p>
               <p class="correctAnswer">False</p>
               <p class="userAnswer userAnswer-8" data-bind="css: { correct: a8(), incorrect: a8() != true }"></p>
             </div>
             <div>
               <h2>Question 9</h2>
-              <p>What is the benefit of including 'use strict' at the start of a JavaScript file?</p>
+              <p data-bind="text: questions()[8].question"></p>
               <p class="correctAnswer">All of the above</p>
               <p class="userAnswer userAnswer-9" data-bind="css: { correct: a9(), incorrect: a9() != true }"></p>
             </div>
             <div>
               <h2>Question 10</h2>
-              <p>What is the benefit of including 'use strict' at the start of a JavaScript file?</p>
+              <p data-bind="text: questions()[9].question"></p>
               <p class="correctAnswer">All of the above</p>
               <p class="userAnswer userAnswer-10" data-bind="css: { correct: a10(), incorrect: a10() != true }"></p>
             </div>
 
-          </div>-->
+          </div>
           <!-- End final screen -->
 
           <!-- Add one more question-->
@@ -139,7 +141,7 @@
 
           <!-- Posible answers go here -->
           <div class="form-group">
-            <div>
+            <div data-bind="visible: gameOver()">
 
               <!-- Start Question answer options -->
               <!--
