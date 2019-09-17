@@ -27,6 +27,19 @@ var ViewModel = {
   // Ranges 1-10, 20 is game over
   questionIndex: ko.observable(1),
 
+  questions: ko.observableArray([
+    'When printed, which of these strings would output: Good morning! Isn’t it a “lovely” day?',
+    'What is \'NaN\'',
+    'JavaScript is an OOP language by default?',
+    'What is a prototype?',
+    'How do you create an object with constructors?',
+    'What is a callback function?',
+    'What are the common uses of JavaScript?',
+    'A separate file is needed for JavaScript while programming a web app.?',
+    'When using the Modulus arithmetic operator (%), which of these equations is true?',
+    'What is the benefit of including \'use strict\' at the start of a JavaScript file?'
+  ]),
+
   // Submit button information
   btnSubmit: {
     text: ko.observable('Finish'),
@@ -66,6 +79,11 @@ var ViewModel = {
   // Prev/Next button active/disable toggles
   canDecrement: ko.observable(false),
   canIncrement: ko.observable(true),
+
+  questionID: function () {
+    var index = this.questionIndex();
+    return 'q' + index;
+  },
 
   // Increment the questionIndex and update Prev/Next toggles
   incrementClickCounter: function () {

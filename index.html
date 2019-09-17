@@ -54,47 +54,8 @@
         <!-- Start Question -->
         <div class="game-body rounded-lg">
 
-          <!--
-            Each question data block has css data-dind to hide/show based upon the question index
-          -->
-          <div id="q1" data-bind="visible: questionIndex() == 1">
-            <span>When printed, which of these strings would output: Good morning! Isn’t it a “lovely” day?</span>
-          </div>
-
-          <div id="q2" data-bind="visible: questionIndex() == 2">
-            <span>What is 'NaN'</span>
-          </div>
-
-          <div id="q3" data-bind="visible: questionIndex() == 3">
-            <span>JavaScript is an OOP language by default?</span>
-          </div>
-
-          <div id="q4" data-bind="visible: questionIndex() == 4">
-            <span>What is a prototype?</span>
-          </div>
-
-          <div id="q5" data-bind="visible: questionIndex() == 5">
-            <span>How do you create an object with constructors?</span>
-          </div>
-
-          <div id="q6" data-bind="visible: questionIndex() == 6">
-            <span>What is a callback function?</span>
-          </div>
-
-          <div id="q7" data-bind="visible: questionIndex() == 7">
-            <span>What are the common uses of JavaScript?</span>
-          </div>
-
-          <div id="q8" data-bind="visible: questionIndex() == 8">
-            <span>A separate file is needed for JavaScript while programming a web app.?</span>
-          </div>
-
-          <div id="q9" data-bind="visible: questionIndex() == 9">
-            <span>When using the Modulus arithmetic operator (%), which of these equations is true?</span>
-          </div>
-
-          <div id="q10" data-bind="visible: questionIndex() == 10">
-            <span>What is the benefit of including 'use strict' at the start of a JavaScript file?</span>
+          <div data-bind="attr: { id: questionID() }">
+            <span data-bind="text: questions()[questionIndex() - 1]"></span>
           </div>
 
           <!-- Final screen -->
@@ -102,7 +63,7 @@
                 Each question data block has css data-dind to hide/show based upon the question index
                 userAnswer text is wrapped in a p and has css data-dind to style color based upon correct/incorrect answer
                 The 'userAnswer' is set by jQuery as the answer radio buttons are selected
-              -->
+
           <div id="q20" data-bind="visible: questionIndex() == 20">
             <h2>Your score: <span data-bind="text: score"></span>%</h2>
             <div>
@@ -166,7 +127,7 @@
               <p class="userAnswer userAnswer-10" data-bind="css: { correct: a10(), incorrect: a10() != true }"></p>
             </div>
 
-          </div>
+          </div>-->
           <!-- End final screen -->
 
           <!-- Add one more question-->
@@ -182,7 +143,7 @@
 
               <!-- Start Question answer options -->
               <!--
-                Each question block has css data-dind to hide/show based upon the question index
+                Each question block is visible based upon the question index
                 Answer text is wrapped in a span with answer-wrapper in order to be targeted by jQuery
                 The 'id' is used by jQuery to calculate the question number
               -->
