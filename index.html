@@ -32,21 +32,20 @@
           <h1>Our JavaScript Trivia Game</h1>
         </div>
 
-        <!-- Start Question count -->
-        <!-- Displays during the game and displays question index -->
-        <div class="d-flex flex-row justify-content-between" data-bind="css: { hide: questionIndex() == 20 }">
-          <h2>Question <span class="question-index" data-bind="text: questionIndex"></span>
+        <!--
+          Start Question count
+          Displays  question index during the game
+          Displays  rank after the game
+        -->
+        <div class="">
+          <h2 data-bind="visible: questionIndex() != 20">
+            Question <span class="question-index" data-bind="text: questionIndex"></span> of 10
           </h2>
-          <h2>
-            <span class="question-index" data-bind="text: questionIndex"></span> of 10
+          <h2 data-bind="visible: questionIndex() == 20">
+            Rank: <span class="question-index" data-bind="text: rank"></span>
           </h2>
         </div>
 
-        <!-- Displays after the game is over and displays the rank -->
-        <div class="d-flex flex-row justify-content-between hide" data-bind=" css: { hide: questionIndex() != 20 }">
-          <h2>Rank: <span class="question-index" data-bind="text: rank"></span>
-          </h2>
-        </div>
       </header>
       <!-- End Question count -->
 

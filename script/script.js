@@ -37,7 +37,7 @@ var ViewModel = {
 
   // Keep track of the score
   score: ko.observable(0),
-  rank: ko.observable('WTF'),
+  rank: ko.observable(''),
 
   // Keeps track of user's answer selection
   q1: ko.observable(0),
@@ -177,8 +177,6 @@ ViewModel.points10 = ko.computed(function () {
 
 ViewModel.checkRank = function () {
   var value = ViewModel.score() / 10;
-  console.log(ViewModel.score() );
-
   if (value > 7) {
     this.rank('Expert');
   } else if (value > 5) {
