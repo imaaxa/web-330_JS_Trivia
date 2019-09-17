@@ -57,43 +57,43 @@
           <!--
             Each question data block has css data-dind to hide/show based upon the question index
           -->
-          <div id="q1" data-bind="css: { hide: questionIndex() != 1 }">
+          <div id="q1" data-bind="visible: questionIndex() == 1">
             <span>When printed, which of these strings would output: Good morning! Isn’t it a “lovely” day?</span>
           </div>
 
-          <div id="q2" class="hide" data-bind="css: { hide: questionIndex() != 2 }">
+          <div id="q2" data-bind="visible: questionIndex() == 2">
             <span>What is 'NaN'</span>
           </div>
 
-          <div id="q3" class="hide" data-bind="css: { hide: questionIndex() != 3 }">
+          <div id="q3" data-bind="visible: questionIndex() == 3">
             <span>JavaScript is an OOP language by default?</span>
           </div>
 
-          <div id="q4" class="hide" data-bind="css: { hide: questionIndex() != 4 }">
+          <div id="q4" data-bind="visible: questionIndex() == 4">
             <span>What is a prototype?</span>
           </div>
 
-          <div id="q5" class="hide" data-bind="css: { hide: questionIndex() != 5 }">
+          <div id="q5" data-bind="visible: questionIndex() == 5">
             <span>How do you create an object with constructors?</span>
           </div>
 
-          <div id="q6" class="hide" data-bind="css: { hide: questionIndex() != 6 }">
+          <div id="q6" data-bind="visible: questionIndex() == 6">
             <span>What is a callback function?</span>
           </div>
 
-          <div id="q7" class="hide" data-bind="css: { hide: questionIndex() != 7 }">
+          <div id="q7" data-bind="visible: questionIndex() == 7">
             <span>What are the common uses of JavaScript?</span>
           </div>
 
-          <div id="q8" class="hide" data-bind="css: { hide: questionIndex() != 8 }">
+          <div id="q8" data-bind="visible: questionIndex() == 8">
             <span>A separate file is needed for JavaScript while programming a web app.?</span>
           </div>
 
-          <div id="q9" class="hide" data-bind="css: { hide: questionIndex() != 9 }">
+          <div id="q9" data-bind="visible: questionIndex() == 9">
             <span>When using the Modulus arithmetic operator (%), which of these equations is true?</span>
           </div>
 
-          <div id="q10" class="hide" data-bind="css: { hide: questionIndex() != 10 }">
+          <div id="q10" data-bind="visible: questionIndex() == 10">
             <span>What is the benefit of including 'use strict' at the start of a JavaScript file?</span>
           </div>
 
@@ -103,7 +103,7 @@
                 userAnswer text is wrapped in a p and has css data-dind to style color based upon correct/incorrect answer
                 The 'userAnswer' is set by jQuery as the answer radio buttons are selected
               -->
-          <div id="q20" class="hide" data-bind="css: { hide: questionIndex() != 20 }">
+          <div id="q20" data-bind="visible: questionIndex() == 20">
             <h2>Your score: <span data-bind="text: score"></span>%</h2>
             <div>
               <h2>Question 1</h2>
@@ -186,7 +186,7 @@
                 Answer text is wrapped in a span with answer-wrapper in order to be targeted by jQuery
                 The 'id' is used by jQuery to calculate the question number
               -->
-              <div id="a1" data-bind="css: { hide: questionIndex() != 1 }">
+              <div id="a1" data-bind="visible: questionIndex() == 1">
                 <div class="form-check">
                   <label class="form-check-label text-capitalize" for="1-0">
                     <input data-bind="checked: q1" class="form-check-input" type="radio" name="answer-1" id="1-0" value="0">
@@ -216,7 +216,7 @@
                 </div>
               </div>
 
-              <div id="a2" class="hide" data-bind="css: { hide: questionIndex() != 2 }">
+              <div id="a2" data-bind="visible: questionIndex() == 2">
                 <div class="form-check">
                   <label class="form-check-label text-capitalize" for="2-0">
                     <input data-bind="checked: q2" class="form-check-input" type="radio" name="answer-2" id="2-0" value="0">
@@ -246,7 +246,7 @@
                 </div>
               </div>
 
-              <div id="a3" class="hide" data-bind="css: { hide: questionIndex() != 3 }">
+              <div id="a3" data-bind="visible: questionIndex() == 3">
                 <div class="form-check">
                   <label class="form-check-label text-capitalize" for="3-0">
                     <input data-bind="checked: q3" class="form-check-input" type="radio" name="answer-3" id="3-0" value="0">
@@ -262,7 +262,7 @@
                 </div>
               </div>
 
-              <div id="a4" class="hide" data-bind="css: { hide: questionIndex() != 4 }">
+              <div id="a4" data-bind="visible: questionIndex() == 4">
                 <div class="form-check">
                   <label class="form-check-label text-capitalize" for="4-0">
                     <input data-bind="checked: q4" class="form-check-input" type="radio" name="answer-4" id="4-0" value="0">
@@ -292,7 +292,7 @@
                 </div>
               </div>
 
-              <div id="a5" class="hide" data-bind="css: { hide: questionIndex() != 5 }">
+              <div id="a5" data-bind="visible: questionIndex() == 5">
                 <div class="form-check">
                   <label class="form-check-label text-capitalize" for="5-0">
                     <input data-bind="checked: q5" class="form-check-input" type="radio" name="answer-5" id="5-0" value="0">
@@ -322,7 +322,7 @@
                 </div>
               </div>
 
-              <div id="a6" class="hide" data-bind="css: { hide: questionIndex() != 6 }">
+              <div id="a6" data-bind="visible: questionIndex() == 6">
                 <div class="form-check">
                   <label class="form-check-label text-capitalize" for="6-0">
                     <input data-bind="checked: q6" class="form-check-input" type="radio" name="answer-6" id="6-0" value="0">
@@ -352,7 +352,7 @@
                 </div>
               </div>
 
-              <div id="a7" class="hide" data-bind="css: { hide: questionIndex() != 7 }">
+              <div id="a7" data-bind="visible: questionIndex() == 7">
                 <div class="form-check">
                   <label class="form-check-label text-capitalize" for="7-0">
                     <input data-bind="checked: q7" class="form-check-input" type="radio" name="answer-7" id="7-0" value="0">
@@ -382,7 +382,7 @@
                 </div>
               </div>
 
-              <div id="a8" class="hide" data-bind="css: { hide: questionIndex() != 8 }">
+              <div id="a8" data-bind="visible: questionIndex() == 8">
                 <div class="form-check">
                   <label class="form-check-label text-capitalize" for="8-0">
                     <input data-bind="checked: q8" class="form-check-input" type="radio" name="answer-8" id="8-0" value="0">
@@ -398,7 +398,7 @@
                 </div>
               </div>
 
-              <div id="a9" class="hide" data-bind="css: { hide: questionIndex() != 9 }">
+              <div id="a9" data-bind="visible: questionIndex() == 9">
                 <div class="form-check">
                   <label class="form-check-label text-capitalize" for="9-0">
                     <input data-bind="checked: q9" class="form-check-input" type="radio" name="answer-9" id="9-0" value="0">
@@ -428,7 +428,7 @@
                 </div>
               </div>
 
-              <div id="a10" class="hide" data-bind="css: { hide: questionIndex() != 10 }">
+              <div id="a10" data-bind="visible: questionIndex() == 10">
                 <div class="form-check">
                   <label class="form-check-label text-capitalize" for="10-0">
                     <input data-bind="checked: q10" class="form-check-input" type="radio" name="answer-10" id="10-0"
