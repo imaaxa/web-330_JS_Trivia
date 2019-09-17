@@ -43,16 +43,17 @@ var ViewModel = {
   // Submit button information
   btnSubmit: {
     text: ko.observable('Finish'),
-    value: ko.observable(20)
+    value: ko.observable(20),
+    active: ko.observable(true)
   },
-  // Submit button active/disable toggle
-  btnSubmitActive: ko.observable(true),
 
   // Keep track of the score
   score: ko.observable(0),
   rank: ko.observable(''),
 
   // Keeps track of user's answer selection
+  usersAnswers: ko.observableArray([
+  ]),
   q1: ko.observable(0),
   q2: ko.observable(0),
   q3: ko.observable(0),
@@ -80,6 +81,7 @@ var ViewModel = {
   canDecrement: ko.observable(false),
   canIncrement: ko.observable(true),
 
+  // Returns id for questions
   questionID: function () {
     var index = this.questionIndex();
     return 'q' + index;
@@ -109,7 +111,7 @@ var ViewModel = {
   // Set the questionIndex to 20 in order to display final screen
   endGame: function () {
     this.btnSubmit.text('Game Over');
-    this.btnSubmitActive(false);
+    this.btnSubmit.active(false);
     this.getScore();
     this.checkRank();
     this.questionIndex(20);
