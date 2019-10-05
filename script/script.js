@@ -33,6 +33,7 @@ var ViewModel = {
     {
       id: 1,
       question: 'When printed, which of these strings would output: Good morning! Isn’t it a “lovely” day?',
+      correctAnswer: 2,
       answer: 'var sentence = \'Good morning! Isn\'t it a "lovely" day?\'',
       options: [
         'var sentence = "Good morning! Isn\'t it a "lovely" day?"',
@@ -44,6 +45,7 @@ var ViewModel = {
     {
       id: 2,
       question: 'What is \'NaN\'',
+      correctAnswer: 3,
       answer: 'Not a Number',
       options: [
         'None at Noon',
@@ -55,6 +57,7 @@ var ViewModel = {
     {
       id: 3,
       question: 'JavaScript is an OOP language by default?',
+      correctAnswer: 1,
       answer: 'False',
       options: [
         'True',
@@ -64,6 +67,7 @@ var ViewModel = {
     {
       id: 4,
       question: 'What is a prototype?',
+      correctAnswer: 0,
       answer: 'A reference to another object',
       options: [
         'A reference to another object',
@@ -75,6 +79,7 @@ var ViewModel = {
     {
       id: 5,
       question: 'How do you create an object with constructors?',
+      correctAnswer: 2,
       answer: 'Create a constructor function.',
       options: [
         'Construct the object.',
@@ -86,6 +91,7 @@ var ViewModel = {
     {
       id: 6,
       question: 'What is a callback function?',
+      correctAnswer: 1,
       answer: 'A function that is executed after another function has finished',
       options: [
         'Something I wish that person I meet the other day had.',
@@ -97,6 +103,7 @@ var ViewModel = {
     {
       id: 7,
       question: 'What are the common uses of JavaScript?',
+      correctAnswer: 3,
       answer: 'All of the Above',
       options: [
         'Web development',
@@ -108,6 +115,7 @@ var ViewModel = {
     {
       id: 8,
       question: 'A separate file is needed for JavaScript while programming a web app.?',
+      correctAnswer: 1,
       answer: 'False',
       options: [
         'True',
@@ -117,6 +125,7 @@ var ViewModel = {
     {
       id: 9,
       question: 'When using the Modulus arithmetic operator (%), which of these equations is true?',
+      correctAnswer: 2,
       answer: 'All of the above',
       options: [
         '50 % 4 = 0',
@@ -128,6 +137,7 @@ var ViewModel = {
     {
       id: 10,
       question: 'What is the benefit of including \'use strict\' at the start of a JavaScript file?',
+      correctAnswer: 3,
       answer: 'All of the above',
       options: [
         'Voluntary way to enforce stricter parsing',
@@ -234,74 +244,54 @@ ko.applyBindings(ViewModel);
 //    Set pass/fail
 //    Return triggers class on final page user answers
 ViewModel.points1 = ko.computed(function () {
-  var test = ViewModel.q1();
-  var pass = (test === answer1) ? true : false;
-  ViewModel.a1(pass);
-  return pass ? 10 : 0;
+  return testResponse(ViewModel.q1(), answer1, 1);
 });
 
 ViewModel.points2 = ko.computed(function () {
-  var test = ViewModel.q2();
-  var pass = (test === answer2) ? true : false;
-  ViewModel.a2(pass);
-  return pass ? 10 : 0;
+  return testResponse(ViewModel.q2(), answer2, 2);
 });
 
 ViewModel.points3 = ko.computed(function () {
-  var test = ViewModel.q3();
-  var pass = (test === answer3) ? true : false;
-  ViewModel.a3(pass);
-  return pass ? 10 : 0;
+  return testResponse(ViewModel.q3(), answer3, 3);
 });
 
 ViewModel.points4 = ko.computed(function () {
-  var test = ViewModel.q4();
-  var pass = (test === answer4) ? true : false;
-  ViewModel.a4(pass);
-  return pass ? 10 : 0;
+  return testResponse(ViewModel.q4(), answer4, 4);
 });
 
 ViewModel.points5 = ko.computed(function () {
-  var test = ViewModel.q5();
-  var pass = (test === answer5) ? true : false;
-  ViewModel.a5(pass);
-  return pass ? 10 : 0;
+  return testResponse(ViewModel.q5(), answer5, 5);
 });
 
 ViewModel.points6 = ko.computed(function () {
-  var test = ViewModel.q6();
-  var pass = (test === answer6) ? true : false;
-  ViewModel.a6(pass);
-  return pass ? 10 : 0;
+  return testResponse(ViewModel.q6(), answer6, 6);
 });
 
 ViewModel.points7 = ko.computed(function () {
-  var test = ViewModel.q7();
-  var pass = (test === answer7) ? true : false;
-  ViewModel.a7(pass);
-  return pass ? 10 : 0;
+  return testResponse(ViewModel.q7(), answer7, 7);
 });
 
 ViewModel.points8 = ko.computed(function () {
-  var test = ViewModel.q8();
-  var pass = (test === answer8) ? true : false;
-  ViewModel.a8(pass);
-  return pass ? 10 : 0;
+  return testResponse(ViewModel.q8(), answer8, 8);
 });
 
 ViewModel.points9 = ko.computed(function () {
-  var test = ViewModel.q9();
-  var pass = (test === answer9) ? true : false;
-  ViewModel.a9(pass);
-  return pass ? 10 : 0;
+      return testResponse(ViewModel.q9(), answer9, 9);
 });
 
 ViewModel.points10 = ko.computed(function () {
-  var test = ViewModel.q10();
-  var pass = (test === answer10) ? true : false;
-  ViewModel.a10(pass);
-  return pass ? 10 : 0;
+      return testResponse(ViewModel.q10(), answer10, 10);
 });
+
+// Tests users response and set corrasponding settings
+function testResponse(test, answer, index) {
+  var pass = (test === answer) ? true : false;
+  ViewModel['a' + index](pass);
+
+  l('f-Test: ' + ViewModel['q' + index]());
+  l('f-Answer: ' + answer);
+  return pass ? 10 : 0;
+}
 
 ViewModel.checkRank = function () {
   var value = ViewModel.score() / 10;
@@ -312,6 +302,10 @@ ViewModel.checkRank = function () {
   } else {
     this.rank('Beginner');
   }
+}
+
+function l(item) {
+  console.log(item);
 }
 
 // Uses questionIndex to set active status on Prev/Next buttons
@@ -338,13 +332,14 @@ ViewModel.getScore = function () {
 
 // Sets up the User selected answers for the final page
 // Adds a on click event for all the radio buttons
-$(":radio").on('click', function (event) {
-  // Gets the question text of the clicked  radio button
-  var userSelection = $(this).next().text();
-  // Gets the id of the clicked radio button
-  var answerId = $(this).attr('id').split('-');
+$(document).ready(function () {
+  $(":radio").on('click', function (event) {
+    // Gets the question text of the clicked  radio button
+    var userSelection = $(this).next().text();
+    // Gets the id of the clicked radio button
+    var answerId = $(this).attr('id').split('-');
 
-  // Copies selected answer text to user selected answer for the question
-  $('.userAnswer-' + answerId[0]).text(userSelection);
+    // Copies selected answer text to user selected answer for the question
+    $('.userAnswer-' + answerId[0]).text(userSelection);
+  });
 });
-// Script Start
