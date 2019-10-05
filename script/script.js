@@ -33,11 +33,11 @@ var ViewModel = {
     {
       id: 1,
       question: 'When printed, which of these strings would output: Good morning! Isn’t it a “lovely” day?',
-      answer: 'var sentence = \'Good morning! Isn\'t it a "lovely" day?',
+      answer: 'var sentence = \'Good morning! Isn\'t it a "lovely" day?\'',
       options: [
         'var sentence = "Good morning! Isn\'t it a "lovely" day?"',
         'var sentence = "Good morning! Isn\'t it a \'lovely\' day?"',
-        'var sentence = \'Good morning! Isn\'t it a "lovely" day?',
+        'var sentence = \'Good morning! Isn\'t it a "lovely" day?\'',
         'var sentence = \'Good morning! Isn\'t it a \'lovely day?'
       ]
     },
@@ -234,70 +234,70 @@ ko.applyBindings(ViewModel);
 //    Set pass/fail
 //    Return triggers class on final page user answers
 ViewModel.points1 = ko.computed(function () {
-  test = ViewModel.q1();
+  var test = ViewModel.q1();
   var pass = (test === answer1) ? true : false;
   ViewModel.a1(pass);
   return pass ? 10 : 0;
 });
 
 ViewModel.points2 = ko.computed(function () {
-  test = ViewModel.q2();
+  var test = ViewModel.q2();
   var pass = (test === answer2) ? true : false;
   ViewModel.a2(pass);
   return pass ? 10 : 0;
 });
 
 ViewModel.points3 = ko.computed(function () {
-  test = ViewModel.q3();
+  var test = ViewModel.q3();
   var pass = (test === answer3) ? true : false;
   ViewModel.a3(pass);
   return pass ? 10 : 0;
 });
 
 ViewModel.points4 = ko.computed(function () {
-  test = ViewModel.q4();
+  var test = ViewModel.q4();
   var pass = (test === answer4) ? true : false;
   ViewModel.a4(pass);
   return pass ? 10 : 0;
 });
 
 ViewModel.points5 = ko.computed(function () {
-  test = ViewModel.q5();
+  var test = ViewModel.q5();
   var pass = (test === answer5) ? true : false;
   ViewModel.a5(pass);
   return pass ? 10 : 0;
 });
 
 ViewModel.points6 = ko.computed(function () {
-  test = ViewModel.q6();
+  var test = ViewModel.q6();
   var pass = (test === answer6) ? true : false;
   ViewModel.a6(pass);
   return pass ? 10 : 0;
 });
 
 ViewModel.points7 = ko.computed(function () {
-  test = ViewModel.q7();
+  var test = ViewModel.q7();
   var pass = (test === answer7) ? true : false;
   ViewModel.a7(pass);
   return pass ? 10 : 0;
 });
 
 ViewModel.points8 = ko.computed(function () {
-  test = ViewModel.q8();
+  var test = ViewModel.q8();
   var pass = (test === answer8) ? true : false;
   ViewModel.a8(pass);
   return pass ? 10 : 0;
 });
 
 ViewModel.points9 = ko.computed(function () {
-  test = ViewModel.q9();
+  var test = ViewModel.q9();
   var pass = (test === answer9) ? true : false;
   ViewModel.a9(pass);
   return pass ? 10 : 0;
 });
 
 ViewModel.points10 = ko.computed(function () {
-  test = ViewModel.q10();
+  var test = ViewModel.q10();
   var pass = (test === answer10) ? true : false;
   ViewModel.a10(pass);
   return pass ? 10 : 0;
