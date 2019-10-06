@@ -287,9 +287,6 @@ ViewModel.points10 = ko.computed(function () {
 function testResponse(test, answer, index) {
   var pass = (test === answer) ? true : false;
   ViewModel['a' + index](pass);
-
-  l('f-Test: ' + ViewModel['q' + index]());
-  l('f-Answer: ' + answer);
   return pass ? 10 : 0;
 }
 
@@ -302,10 +299,6 @@ ViewModel.checkRank = function () {
   } else {
     this.rank('Beginner');
   }
-}
-
-function l(item) {
-  console.log(item);
 }
 
 // Uses questionIndex to set active status on Prev/Next buttons
